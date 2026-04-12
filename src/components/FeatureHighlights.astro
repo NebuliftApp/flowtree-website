@@ -1,0 +1,52 @@
+---
+// Feature overview — three core pillars from the brief
+const features = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 3v12" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" />
+    </svg>`,
+    title: 'Worktree-First Organization',
+    description: 'Projects, branches, terminals, and review are organized around worktrees. Create from new or existing branches, import from disk, and open directly in your IDE.',
+    color: 'accent',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
+    </svg>`,
+    title: 'Persistent Terminal Environments',
+    description: 'Each worktree has its own terminal area with multiple tabs backed by tmux. Sessions survive app restarts. Launch shell or LLM-assisted terminal sessions from the same place.',
+    color: 'cyan',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>`,
+    title: 'Safety and Control',
+    description: 'Protected branches, checked-out-branch awareness, merge conflict previews, and explicit flows for destructive actions. FlowTree helps with Git without hiding Git from you.',
+    color: 'green',
+  },
+];
+---
+
+<section id="features" class="py-20 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">What FlowTree Does</h2>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+        A single workspace for managing git worktrees, branches, history, terminals, and Git operations across multiple projects.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {features.map((feature, i) => (
+        <div class={`animate-on-scroll delay-${i + 1} rounded-2xl border border-border bg-bg-surface p-8 hover:border-${feature.color}/30 transition-all duration-300`}>
+          <div class={`w-12 h-12 rounded-xl bg-${feature.color}/10 border border-${feature.color}/20 flex items-center justify-center text-${feature.color} mb-5`}>
+            <Fragment set:html={feature.icon} />
+          </div>
+          <h3 class="text-lg font-semibold mb-3">{feature.title}</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

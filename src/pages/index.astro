@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import FeatureHighlights from '../components/FeatureHighlights.astro';
+import WorktreeSection from '../components/WorktreeSection.astro';
+import BranchesSection from '../components/BranchesSection.astro';
+import TerminalSection from '../components/TerminalSection.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <FeatureHighlights />
+    <HowItWorks />
+    <WorktreeSection />
+    <BranchesSection />
+    <TerminalSection />
+    <BentoGrid />
+  </main>
+  <Footer />
+</Layout>

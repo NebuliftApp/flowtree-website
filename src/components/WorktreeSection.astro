@@ -1,0 +1,103 @@
+---
+// Worktree management section with real screenshots
+---
+
+<section id="worktrees" class="py-20 md:py-32 relative overflow-hidden">
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: Text content -->
+      <div class="animate-on-scroll">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent text-xs font-medium mb-6">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3v12" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" />
+          </svg>
+          Worktree Management
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          Parallel branches,<br />
+          <span class="text-accent">each in its own workspace.</span>
+        </h2>
+
+        <p class="text-text-secondary text-lg mb-8 leading-relaxed">
+          Worktrees are the primary unit of organization. Create them from new or existing branches, 
+          import existing ones from disk, and manage them all from one view.
+        </p>
+
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4CAF7D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            </div>
+            <div>
+              <span class="font-medium text-text-primary">Create from any branch</span>
+              <p class="text-sm text-text-secondary mt-0.5">Create worktrees from local or remote branches, or start a new branch. A guided dialog shows live progress across branch creation, worktree creation, and file-copying steps.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4CAF7D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            </div>
+            <div>
+              <span class="font-medium text-text-primary">Multi-project workspace</span>
+              <p class="text-sm text-text-secondary mt-0.5">Add multiple repositories and switch between them from the project rail. Existing worktrees are auto-discovered when you add a project.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4CAF7D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            </div>
+            <div>
+              <span class="font-medium text-text-primary">Open in your IDE</span>
+              <p class="text-sm text-text-secondary mt-0.5">Open any worktree directly in Finder, Android Studio, or IntelliJ. Pop a worktree into its own window for focused work.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4CAF7D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            </div>
+            <div>
+              <span class="font-medium text-text-primary">Clean lifecycle management</span>
+              <p class="text-sm text-text-secondary mt-0.5">Rename, remove, and prune worktrees. Important local files are carried forward into new worktrees while build and dependency directories are skipped.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Screenshots -->
+      <div class="animate-on-scroll delay-2 space-y-4">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent/10 to-cyan/5 rounded-2xl blur-xl scale-105"></div>
+          <div class="relative rounded-2xl border border-border overflow-hidden bg-bg-surface shadow-xl">
+            <img 
+              src="/images/worktrees-tab.png" 
+              alt="FlowTree worktrees tab showing a list of worktrees with branch names, dirty state, and action buttons" 
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="relative rounded-2xl border border-border overflow-hidden bg-bg-surface shadow-lg">
+            <img 
+              src="/images/create-worktree.png" 
+              alt="Create worktree dialog for creating a new branch" 
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+          <div class="relative rounded-2xl border border-border overflow-hidden bg-bg-surface shadow-lg">
+            <img 
+              src="/images/create-worktree-existing.png" 
+              alt="Create worktree dialog from an existing branch" 
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

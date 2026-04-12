@@ -1,0 +1,47 @@
+---
+const techStack = [
+  { name: 'Swift', color: 'orange' },
+  { name: 'SwiftUI', color: 'accent' },
+  { name: 'Ghostty', color: 'cyan' },
+  { name: 'tmux', color: 'purple' },
+];
+---
+
+<!-- Tech Stack -->
+<section class="py-20 border-t border-border">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <div class="animate-on-scroll">
+      <p class="text-sm text-text-muted uppercase tracking-widest font-medium mb-8">Built with</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        {techStack.map((tech) => (
+          <div class={`px-5 py-2.5 rounded-xl border border-border bg-bg-surface text-sm font-medium text-${tech.color} hover:border-${tech.color}/30 transition-colors`}>
+            {tech.name}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-border py-10">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-accent to-cyan flex items-center justify-center">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3v12" />
+            <circle cx="18" cy="6" r="3" />
+            <circle cx="6" cy="18" r="3" />
+            <path d="M18 9a9 9 0 0 1-9 9" />
+          </svg>
+        </div>
+        <span class="text-sm font-medium text-text-secondary">FlowTree</span>
+      </div>
+
+      <p class="text-xs text-text-muted">
+        &copy; {new Date().getFullYear()} FlowTree. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
