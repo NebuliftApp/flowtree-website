@@ -1,0 +1,59 @@
+---
+// The problem FlowTree solves — relatable developer pain points
+const scenarios = [
+  {
+    pain: 'A bug comes in mid-feature.',
+    old: 'Stash everything, switch branches, fix it, switch back, pop the stash, restart your dev server, find where you were.',
+    solved: 'Spin up a worktree, fix it, push. Your feature branch is exactly where you left it — terminal still running, files untouched.',
+  },
+  {
+    pain: 'You need to review a PR.',
+    old: 'Commit or stash your work, check out their branch, lose your running context, then undo it all when you\'re done.',
+    solved: 'Pull the branch into a worktree. Review it, test it, close it. Your own work never stops.',
+  },
+  {
+    pain: 'A quick one-line fix on another branch.',
+    old: 'Stash, switch, edit, commit, push, switch back, pop. Five minutes of overhead for a ten-second change.',
+    solved: 'Open a worktree, make the change, push. No stashing, no switching, no context lost.',
+  },
+];
+---
+
+<section class="py-20 md:py-32 border-t border-border">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Stop breaking your workflow to do other work</h2>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+        Every context switch costs you time and focus. FlowTree keeps each piece of work in its own space so nothing gets interrupted.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      {scenarios.map((s, i) => (
+        <div class={`animate-on-scroll delay-${i + 1} rounded-2xl border border-border bg-bg-surface p-6`}>
+          <p class="font-semibold text-text-primary mb-4">{s.pain}</p>
+          
+          <div class="mb-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-5 h-5 rounded-full bg-red/10 flex items-center justify-center shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-red"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </span>
+              <span class="text-xs font-medium text-text-muted uppercase tracking-wide">Without worktrees</span>
+            </div>
+            <p class="text-sm text-text-secondary leading-relaxed">{s.old}</p>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-5 h-5 rounded-full bg-green/10 flex items-center justify-center shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-green"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="text-xs font-medium text-text-muted uppercase tracking-wide">With FlowTree</span>
+            </div>
+            <p class="text-sm text-text-secondary leading-relaxed">{s.solved}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
