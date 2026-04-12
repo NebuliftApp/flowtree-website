@@ -1,5 +1,6 @@
 ---
 // Hero section — factual intro with real app screenshot
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
@@ -41,7 +42,7 @@
       <div class="absolute inset-0 bg-gradient-to-t from-accent/8 via-cyan/4 to-transparent rounded-2xl blur-2xl scale-105"></div>
       <div class="relative rounded-2xl border border-border overflow-hidden shadow-2xl shadow-black/40">
         <img 
-          src="/images/app-full.png" 
+          src={`${base}images/app-full.png`} 
           alt="FlowTree showing a worktree with an integrated terminal session" 
           class="w-full h-auto"
           loading="eager"
