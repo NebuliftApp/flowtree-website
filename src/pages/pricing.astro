@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Pricing — FlowTree" description="FlowTree pricing is being finalised. This page will publish the complete price, trial, licence, update, and offline-use terms before release.">
+  <Navbar />
+  <main>
+    <PageHero eyebrow="Pricing" title="Simple pricing is being finalised." description="FlowTree is not for sale yet. We are reserving this page so the commercial terms will be as clear as the product before the download goes live." />
+
+    <section class="section-tight">
+      <div class="pricing-shell">
+        <div class="pricing-top">
+          <span class="status-badge">Not available for purchase</span>
+          <h2>FlowTree for macOS</h2>
+          <div class="price-placeholder">Price to be announced</div>
+          <p class="muted">No payment is being accepted and no subscription is being started from this website.</p>
+        </div>
+        <div class="pricing-body">
+          <h3>What will be published before launch</h3>
+          <ul class="check-list">
+            <li>The complete price and billing frequency.</li>
+            <li>Any trial period and refund terms.</li>
+            <li>Individual and team licence rules.</li>
+            <li>Whether updates are included.</li>
+            <li>Offline use and licence-validation behaviour.</li>
+            <li>Taxes, payment provider, and cancellation details.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card-grid">
+        <article class="card"><h3>No artificial tiers</h3><p>The initial plan is to keep the offer understandable and avoid splitting essential worktree, terminal, or privacy features into confusing packages.</p></article>
+        <article class="card"><h3>No surprise cloud dependency</h3><p>Any future licence or subscription validation will be disclosed because it affects the product’s local-first networking story.</p></article>
+        <article class="card"><h3>No placeholder checkout</h3><p>This page will not show a fake purchase button or collect payment until a real product, licence, and delivery flow are ready.</p></article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

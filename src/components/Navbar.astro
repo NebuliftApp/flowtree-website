@@ -1,21 +1,35 @@
 ---
-// Navbar
 const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+const links = [
+  { href: `${base}worktrees/`, label: 'Worktrees', key: '/worktrees/' },
+  { href: `${base}features/`, label: 'Features', key: '/features/' },
+  { href: `${base}how-it-works/`, label: 'How it works', key: '/how-it-works/' },
+  { href: `${base}faq/`, label: 'FAQ', key: '/faq/' },
+  { href: `${base}pricing/`, label: 'Pricing', key: '/pricing/' },
+];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 border-b border-border-light backdrop-blur-xl bg-bg/80">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2.5 group">
-      <img src={`${base}images/app-icon.png`} alt="FlowTree" class="w-8 h-8 rounded-lg" />
-      <span class="text-lg font-semibold text-text-primary group-hover:text-accent transition-colors">FlowTree</span>
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="container nav-inner">
+    <a class="brand" href={base} aria-label="FlowTree home">
+      <img src={`${base}images/app-icon.png`} alt="" />
+      <span>FlowTree</span>
     </a>
 
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#features" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Features</a>
-      <a href="#how-it-works" class="text-sm text-text-secondary hover:text-text-primary transition-colors">How It Works</a>
-      <a href="#worktrees" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Worktrees</a>
-      <a href="#branches" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Branches</a>
-      <a href="#terminal" class="text-sm text-text-secondary hover:text-text-primary transition-colors">Terminal</a>
+    <div class="desktop-nav">
+      {links.map((link) => (
+        <a class="nav-link" href={link.href} aria-current={pathname.endsWith(link.key) ? 'page' : undefined}>{link.label}</a>
+      ))}
+      <a class="button button-primary nav-cta" href={`${base}download/`}>Download</a>
     </div>
+
+    <details class="mobile-nav">
+      <summary aria-label="Open navigation">Menu</summary>
+      <div class="mobile-panel">
+        {links.map((link) => <a class="nav-link" href={link.href}>{link.label}</a>)}
+        <a class="nav-link" href={`${base}download/`}>Download</a>
+      </div>
+    </details>
   </div>
 </nav>

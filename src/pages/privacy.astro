@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="Privacy — FlowTree" description="A plain-language summary of how the FlowTree macOS application handles repositories, local data, remote Git operations, and authentication.">
+  <Navbar />
+  <main>
+    <PageHero eyebrow="Product privacy" title="Your repositories stay under your control." description="FlowTree is designed without a product backend that receives your code. This page describes the application’s current data boundaries in plain language." />
+
+    <section class="section-tight">
+      <div class="narrow">
+        <div class="quote-band"><blockquote>FlowTree does not upload your repositories to a FlowTree server.</blockquote><p>Your code is read and changed through ordinary files and local Git operations on your Mac.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Application data</p><h2>What stays on your Mac.</h2></div>
+        <div class="faq-list">
+          <article class="card"><h3>Repository contents</h3><p>FlowTree reads local repositories and worktree directories to show status, diffs, history, and files. It does not copy those repositories into a FlowTree-hosted service.</p></article>
+          <article class="card"><h3>Configuration and cached state</h3><p>Added projects, worktree metadata, terminal profiles, linked paths, cached Git state, review state, and command logs are stored locally as application data.</p></article>
+          <article class="card"><h3>Terminal sessions</h3><p>Terminal processes and tmux sessions run on your machine. Any external CLI you start inside a terminal has its own behaviour and privacy terms, separate from FlowTree.</p></article>
+          <article class="card"><h3>Authentication</h3><p>FlowTree does not require custom Git authentication. Local Git uses the SSH keys, credential helpers, tokens, and remote configuration already available in your environment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Remote operations</p><h2>When information can leave your Mac.</h2><p>Local-first is a boundary, not a claim that every command is offline.</p></div>
+        <div class="callout"><strong>Git remotes</strong><p>If you run fetch, pull, push, remote branch deletion, or background remote synchronisation, your local Git process communicates with the host configured for that repository.</p></div>
+        <div class="callout" style="margin-top:14px"><strong>External CLIs</strong><p>AI coding tools and other commands launched in FlowTree terminals may contact their own providers. FlowTree does not change or proxy those tools’ networking behaviour.</p></div>
+        <p class="fine" style="margin-top:28px">A formal legal privacy policy, company identity, support contact, analytics statement, and any future licensing-provider disclosures must be completed before commercial release.</p>
+      </div>
+    </section>
+    <CTA title="Local tools. Visible boundaries." />
+  </main>
+  <Footer />
+</Layout>

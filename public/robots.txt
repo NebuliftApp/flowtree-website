@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nebuliftapp.github.io/flowtree-website/sitemap.xml

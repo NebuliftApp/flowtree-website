@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+import { faqs } from '../data/faq';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })),
+};
+---
+
+<Layout title="Frequently asked questions — FlowTree" description="Answers about Git worktrees, local-first operation, terminal persistence, AI tools, IDE support, and system requirements.">
+  <Navbar />
+  <main>
+    <PageHero eyebrow="Frequently asked questions" title="The practical details, before you install." description="How worktrees behave, what stays local, which tools FlowTree uses, and what the current release will require." />
+    <section class="section-tight">
+      <div class="narrow faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer"><p>{faq.answer}</p></div>
+          </details>
+        ))}
+      </div>
+    </section>
+    <CTA title="Ready when the release is." description="The download is not available yet. The release page will carry the exact version, requirements, and installation instructions when it is ready." />
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

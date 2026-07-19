@@ -1,28 +1,175 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import FeatureHighlights from '../components/FeatureHighlights.astro';
-import WorktreeSection from '../components/WorktreeSection.astro';
-import BranchesSection from '../components/BranchesSection.astro';
-import TerminalSection from '../components/TerminalSection.astro';
-import UseCases from '../components/UseCases.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import BentoGrid from '../components/BentoGrid.astro';
 import Footer from '../components/Footer.astro';
+import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import CTA from '../components/CTA.astro';
+import { faqs } from '../data/faq';
+
+const base = import.meta.env.BASE_URL;
+const useCases = [
+  { title: 'A PR needs your attention', text: 'Open its branch in a separate worktree, run it, review it, and close it without disturbing your current feature.' },
+  { title: 'A bug interrupts feature work', text: 'Create a focused fix workspace while the original branch, files, and terminal sessions remain exactly where you left them.' },
+  { title: 'Two agents can work in parallel', text: 'Give each task its own branch, directory, and terminal profile so every CLI tool starts in the correct context.' },
+];
 ---
 
 <Layout>
   <Navbar />
   <main>
-    <Hero />
-    <UseCases />
-    <FeatureHighlights />
-    <HowItWorks />
-    <WorktreeSection />
-    <BranchesSection />
-    <TerminalSection />
-    <BentoGrid />
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Worktree-first development for macOS</p>
+          <h1>Parallel work, <span class="gradient-text">without the terminal tangle.</span></h1>
+          <p class="lede">FlowTree keeps Git worktrees, persistent terminals, AI coding sessions, and review tools together—so features, fixes, and pull-request reviews can run side by side.</p>
+          <div class="button-row">
+            <a class="button button-primary" href={`${base}worktrees/`}>Explore worktrees →</a>
+            <a class="button button-secondary" href={`${base}download/`}>Download status</a>
+          </div>
+          <div class="trust-row" aria-label="Product attributes">
+            <span class="trust-pill">Native macOS app</span>
+            <span class="trust-pill">No FlowTree cloud</span>
+            <span class="trust-pill">Your existing Git auth</span>
+          </div>
+        </div>
+        <MediaPlaceholder
+          kind="screenshot"
+          ratio="app"
+          title="FlowTree hero workspace"
+          description="Show one consistent demo project with 4–5 worktrees grouped by state, plus two terminal profile tabs in the selected worktree. Capture at Retina resolution."
+        />
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Keep your place</p>
+          <h2>Stop dismantling one workflow to start another.</h2>
+          <p>A branch switch should not mean rebuilding your whole mental and terminal context.</p>
+        </div>
+        <div class="card-grid">
+          {useCases.map((item) => (
+            <article class="card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="split-copy">
+          <p class="eyebrow">The core of FlowTree</p>
+          <h2>Every branch becomes a complete place to work.</h2>
+          <p class="lede">Create worktrees for durable workstreams such as Main Work and PR Review, or name them after the task in front of you. FlowTree adapts to either model.</p>
+          <ul class="check-list">
+            <li><strong>Create or import worktrees</strong> from new, local, or remote branches.</li>
+            <li><strong>Carry useful untracked files forward</strong> while skipping ignored build and dependency output.</li>
+            <li><strong>Group work by custom states</strong> such as Planning, In Progress, Blocked, and PR Open.</li>
+            <li><strong>Change branches in place</strong> when the workstream needs to move.</li>
+          </ul>
+          <div class="button-row"><a class="text-link" href={`${base}worktrees/`}>See the complete worktree workflow →</a></div>
+        </div>
+        <MediaPlaceholder
+          kind="video"
+          title="From interruption to separate workspace"
+          description="15–25 second loop: create “Review Daniel’s PR”, start a terminal profile, switch back to feature work, then return to the still-running review session."
+        />
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Everything around the worktree</p>
+          <h2>Terminals, Git, and context stay attached to the work.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card">
+            <div class="feature-icon">›_</div>
+            <h3>Persistent terminal sessions</h3>
+            <p>Create multiple named terminal tabs per worktree. tmux keeps them alive when FlowTree closes, while custom profiles launch a shell or the CLI tool you choose.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon mint">±</div>
+            <h3>Review and finish the change</h3>
+            <p>Inspect unified or split diffs, stage precise changes, commit, push, merge, rebase, and work through conflicts from one native interface.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon amber">⌂</div>
+            <h3>Local-first by design</h3>
+            <p>There is no FlowTree backend. The app coordinates local Git, tmux, files, and application data on your Mac, using your existing tools and credentials.</p>
+          </article>
+        </div>
+        <div class="button-row" style="justify-content:center;margin-top:34px">
+          <a class="button button-secondary" href={`${base}features/`}>Explore all features</a>
+          <a class="button button-secondary" href={`${base}how-it-works/`}>See how local-first works</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split reverse">
+        <div class="split-copy">
+          <p class="eyebrow">Built for AI-assisted work</p>
+          <h2>Give each CLI session the right branch context.</h2>
+          <p class="lede">Profiles are commands, not provider lock-in. Start Claude, another AI coding tool, or a normal shell inside the selected worktree and keep those sessions visually distinct.</p>
+          <ul class="check-list">
+            <li>Named, colour-coded terminal profiles.</li>
+            <li>Multiple terminal tabs attached to each worktree.</li>
+            <li>Claude-specific external file and directory linking.</li>
+            <li>Open the whole worktree—or a specific review file—in your IDE.</li>
+          </ul>
+        </div>
+        <MediaPlaceholder
+          kind="screenshot"
+          ratio="app"
+          title="Terminal profiles and linked context"
+          description="Show the New Terminal Tab sheet with a Claude profile selected, linked files and directories checked, and the worktree name visible behind it."
+        />
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="quote-band">
+          <blockquote>“Your code does not go to FlowTree. Your local Git process only contacts your configured remote when you ask it to.”</blockquote>
+          <p>A precise local-first promise—without pretending that Git push and fetch are offline operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <div class="section-heading center">
+          <p class="eyebrow">Common questions</p>
+          <h2>Know what FlowTree changes—and what it does not.</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.slice(0, 4).map((faq) => (
+            <details class="faq-item">
+              <summary>{faq.question}</summary>
+              <div class="faq-answer"><p>{faq.answer}</p></div>
+            </details>
+          ))}
+        </div>
+        <div class="button-row" style="justify-content:center"><a class="text-link" href={`${base}faq/`}>Read every answer →</a></div>
+      </div>
+    </section>
+
+    <CTA />
   </main>
   <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'FlowTree',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'macOS 26 or later',
+    description: 'A worktree-first macOS workspace for Git branches, persistent terminals, AI coding sessions, and code review.',
+  })} />
 </Layout>

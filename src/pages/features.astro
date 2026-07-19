@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="Features — FlowTree" description="Persistent terminals, Git review, branch management, linked context, IDE launching, and local-first operation around every worktree.">
+  <Navbar />
+  <main>
+    <PageHero eyebrow="Product features" title="Everything needed to run and finish parallel work." description="FlowTree brings the tools around each worktree into one native macOS workspace without hiding the Git operations underneath." />
+
+    <section class="section-tight">
+      <div class="container card-grid">
+        <article class="feature-card"><div class="feature-icon">⑂</div><h3>Worktree-first</h3><p>Create, import, rename, group, pin, change branches, prune, and remove worktrees across multiple projects.</p></article>
+        <article class="feature-card"><div class="feature-icon mint">›_</div><h3>Persistent terminals</h3><p>Attach multiple named terminal tabs to each worktree, powered by tmux and rendered with Ghostty.</p></article>
+        <article class="feature-card"><div class="feature-icon amber">±</div><h3>Git review and safety</h3><p>Review precise changes and use explicit flows for commits, protected branches, merges, rebases, stashes, and conflicts.</p></article>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container split">
+        <div class="split-copy"><p class="eyebrow">Terminal and AI profiles</p><h2>Start the right tool in the right directory.</h2><p class="lede">A terminal profile stores a command, name, default status, and colour. It can launch an AI coding CLI or a normal shell without tying FlowTree to one provider.</p><ul class="check-list"><li>Multiple terminal tabs for each worktree.</li><li>Sessions continue through a dedicated tmux server.</li><li>Rename and recolour sessions after creation.</li><li>Claude sessions can reference linked files and receive linked directories with <code>--add-dir</code>.</li></ul></div>
+        <MediaPlaceholder kind="video" title="Persistent terminal profiles" description="Show three colour-coded tabs—Shell, Claude, and another configured CLI—then close and reopen FlowTree to demonstrate the selected session reattaching." />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split reverse">
+        <div class="split-copy"><p class="eyebrow">Review and commit</p><h2>See exactly what changed before it ships.</h2><p class="lede">Move from a worktree’s status to a focused review screen with file navigation, syntax-highlighted diffs, staging controls, and commit actions.</p><ul class="check-list"><li>Unified and side-by-side diff modes.</li><li>Stage or unstage files, hunks, and selected lines.</li><li>Discard changes with explicit confirmation.</li><li>Commit, amend, or commit and push from the review.</li><li>Open a specific file directly in a configured IDE.</li></ul></div>
+        <MediaPlaceholder kind="screenshot" ratio="app" title="Focused code review" description="Use a believable Swift or TypeScript change with both staged and unstaged files, a selected hunk, and a short commit message. Avoid empty space in the crop." />
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="section-heading center"><p class="eyebrow">Git without the guesswork</p><h2>Powerful operations with visible consequences.</h2><p>FlowTree helps with Git without pretending Git is not there.</p></div>
+        <div class="card-grid">
+          <article class="card"><div class="feature-icon">⇄</div><h3>Branches and remotes</h3><p>Search, pin, create, delete, fetch, pull, push, and see which branches are already checked out in another worktree.</p></article>
+          <article class="card"><div class="feature-icon amber">⑂</div><h3>Merge and rebase previews</h3><p>See ahead/behind analysis, fast-forward detection, dirty-worktree handling, and likely conflict files before starting.</p></article>
+          <article class="card"><div class="feature-icon mint">◫</div><h3>Conflict resolution</h3><p>Review conflict markers, open files in an IDE, mark files resolved, continue the merge, or abort safely.</p></article>
+          <article class="card"><div class="feature-icon purple">⌛</div><h3>Commit history</h3><p>Search an incrementally loaded project graph with HEAD, local-branch, and remote-branch decorations.</p></article>
+          <article class="card"><div class="feature-icon">▤</div><h3>Stash management</h3><p>Create, inspect, pop, apply, and drop stashes, with auto-stash options where a merge or rebase requires a clean worktree.</p></article>
+          <article class="card"><div class="feature-icon amber">◇</div><h3>Protected branches</h3><p>Prevent commits, pushes, and remote deletion through FlowTree for branches that should remain guarded.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="split-copy"><p class="eyebrow">Files and IDEs</p><h2>Move from overview to exact file without hunting.</h2><p class="lede">Open a complete worktree in Finder or your preferred IDE. From review and conflict surfaces, jump directly to the file that needs attention.</p><ul class="check-list"><li>Visual Studio Code and Xcode.</li><li>Android Studio and IntelliJ IDEA.</li><li>Finder and focused pop-out worktree windows.</li><li>Linked external Markdown/text files and directories for Claude context.</li></ul></div>
+        <MediaPlaceholder kind="screenshot" ratio="app" title="Linked context and Open In actions" description="Composite or two-panel capture: linked files/directories in the worktree sidebar and the Open In menu showing every supported installed IDE." />
+      </div>
+    </section>
+    <CTA />
+  </main>
+  <Footer />
+</Layout>

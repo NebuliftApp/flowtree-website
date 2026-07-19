@@ -1,43 +1,31 @@
-# Astro Starter Kit: Minimal
+# FlowTree website
+
+The marketing website for FlowTree, a worktree-first macOS workspace for parallel Git and AI-assisted development.
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site is built with Astro and Tailwind CSS. It is configured for GitHub Pages at `/flowtree-website/`.
 
-## 🚀 Project Structure
+## Routes
 
-Inside of your Astro project, you'll see the following folders and files:
+- `/` — concise product overview
+- `/worktrees/` — flagship worktree workflow
+- `/features/` — terminals, review, Git operations, context, and IDEs
+- `/how-it-works/` — local architecture and networking boundaries
+- `/faq/` — product FAQ and structured FAQ data
+- `/privacy/` — plain-language application privacy summary
+- `/pricing/` — honest pre-release pricing placeholder
+- `/download/` — honest pre-release download placeholder
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Media placeholders
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Product-media slots use `src/components/MediaPlaceholder.astro`. Each placeholder includes the intended asset type and a capture brief. Replace the component invocation with an image or video when the final asset is ready, retaining the supplied description as the basis for useful alt text or a caption.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Use one fictional repository and consistent worktree names across the complete capture set. Remove usernames, private paths, remote URLs, tokens, and notifications before exporting.

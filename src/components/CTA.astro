@@ -1,0 +1,24 @@
+---
+const base = import.meta.env.BASE_URL;
+interface Props { title?: string; description?: string; }
+const {
+  title = 'Keep every piece of work in its own flow.',
+  description = 'FlowTree is not available to download yet. Explore the product now and check back for release details.',
+} = Astro.props;
+---
+
+<section class="section section-border">
+  <div class="container">
+    <div class="cta-panel">
+      <div>
+        <p class="eyebrow">Coming to macOS</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+      <div class="button-row">
+        <a class="button button-primary" href={`${base}download/`}>Release status →</a>
+        <a class="button button-secondary" href={`${base}faq/`}>Read the FAQ</a>
+      </div>
+    </div>
+  </div>
+</section>
