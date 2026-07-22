@@ -6,48 +6,68 @@ import PageHero from '../components/PageHero.astro';
 import CTA from '../components/CTA.astro';
 ---
 
-<Layout title="Features — FlowTree" description="Persistent terminals, Git review, branch management, linked context, IDE launching, and local-first operation around every worktree.">
+<Layout title="Features — FlowTree" description="Keep worktrees, AI and terminal sessions, Git changes, and IDE access together in one native macOS workspace.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Product features" title="Everything needed to run and finish parallel work." description="FlowTree brings the tools around each worktree into one native macOS workspace without hiding the Git operations underneath." />
+    <PageHero eyebrow="Features" title="The working context around every branch." description="FlowTree connects the tools you already use and keeps them organised by task." />
 
     <section class="section-tight">
       <div class="container card-grid">
-        <article class="feature-card"><div class="feature-icon">⑂</div><h3>Worktree-first</h3><p>Create, import, rename, group, pin, change branches, prune, and remove worktrees across multiple projects.</p></article>
-        <article class="feature-card"><div class="feature-icon mint">›_</div><h3>Persistent terminals</h3><p>Attach multiple named terminal tabs to each worktree, powered by tmux and rendered with Ghostty.</p></article>
-        <article class="feature-card"><div class="feature-icon amber">±</div><h3>Git review and safety</h3><p>Review precise changes and use explicit flows for commits, protected branches, merges, rebases, stashes, and conflicts.</p></article>
+        <article class="feature-card"><div class="feature-icon">⑂</div><h3>Worktrees for every task</h3><p>Create or import isolated workspaces for features, fixes, experiments, and reviews.</p></article>
+        <article class="feature-card"><div class="feature-icon mint">›_</div><h3>Persistent sessions</h3><p>Keep multiple AI, shell, test, and log sessions attached to the work they belong to.</p></article>
+        <article class="feature-card"><div class="feature-icon amber">±</div><h3>Git review</h3><p>Review, stage, commit, push, merge, rebase, stash, and resolve conflicts from the same workspace.</p></article>
       </div>
     </section>
 
     <section class="section section-border">
       <div class="narrow">
-        <div class="split-copy"><p class="eyebrow">Terminal and AI profiles</p><h2>Start the right tool in the right directory.</h2><p class="lede">A terminal profile stores a command, name, default status, and colour. It can launch an AI coding CLI or a normal shell without tying FlowTree to one provider.</p><ul class="check-list"><li>Multiple terminal tabs for each worktree.</li><li>Sessions continue through a dedicated tmux server.</li><li>Rename and recolour sessions after creation.</li><li>Claude sessions can reference linked files and receive linked directories with <code>--add-dir</code>.</li></ul></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="narrow">
-        <div class="split-copy"><p class="eyebrow">Review and commit</p><h2>See exactly what changed before it ships.</h2><p class="lede">Move from a worktree’s status to a focused review screen with file navigation, syntax-highlighted diffs, staging controls, and commit actions.</p><ul class="check-list"><li>Unified and side-by-side diff modes.</li><li>Stage or unstage files, hunks, and selected lines.</li><li>Discard changes with explicit confirmation.</li><li>Commit, amend, or commit and push from the review.</li><li>Open a specific file directly in a configured IDE.</li></ul></div>
-      </div>
-    </section>
-
-    <section class="section section-border">
-      <div class="container">
-        <div class="section-heading center"><p class="eyebrow">Git without the guesswork</p><h2>Powerful operations with visible consequences.</h2><p>FlowTree helps with Git without pretending Git is not there.</p></div>
-        <div class="card-grid">
-          <article class="card"><div class="feature-icon">⇄</div><h3>Branches and remotes</h3><p>Search, pin, create, delete, fetch, pull, push, and see which branches are already checked out in another worktree.</p></article>
-          <article class="card"><div class="feature-icon amber">⑂</div><h3>Merge and rebase previews</h3><p>See ahead/behind analysis, fast-forward detection, dirty-worktree handling, and likely conflict files before starting.</p></article>
-          <article class="card"><div class="feature-icon mint">◫</div><h3>Conflict resolution</h3><p>Review conflict markers, open files in an IDE, mark files resolved, continue the merge, or abort safely.</p></article>
-          <article class="card"><div class="feature-icon purple">⌛</div><h3>Commit history</h3><p>Search an incrementally loaded project graph with HEAD, local-branch, and remote-branch decorations.</p></article>
-          <article class="card"><div class="feature-icon">▤</div><h3>Stash management</h3><p>Create, inspect, pop, apply, and drop stashes, with auto-stash options where a merge or rebase requires a clean worktree.</p></article>
-          <article class="card"><div class="feature-icon amber">◇</div><h3>Protected branches</h3><p>Prevent commits, pushes, and remote deletion through FlowTree for branches that should remain guarded.</p></article>
+        <div class="split-copy">
+          <p class="eyebrow">Use the right model for the job</p>
+          <h2>Build, test, and challenge ideas side by side.</h2>
+          <p class="lede">Profiles can launch any command-based AI tool or a normal shell. Use one model to implement, another to review its decisions, and dedicated sessions for the application and tests.</p>
+          <ul class="check-list">
+            <li>Multiple terminal tabs for each worktree.</li>
+            <li>Sessions persist when FlowTree closes.</li>
+            <li>Profiles stay provider-independent.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="narrow">
-        <div class="split-copy"><p class="eyebrow">Files and IDEs</p><h2>Move from overview to exact file without hunting.</h2><p class="lede">Open a complete worktree in Finder or your preferred IDE. From review and conflict surfaces, jump directly to the file that needs attention.</p><ul class="check-list"><li>Visual Studio Code and Xcode.</li><li>Android Studio and IntelliJ IDEA.</li><li>Finder and focused pop-out worktree windows.</li><li>Linked external Markdown/text files and directories for Claude context.</li></ul></div>
+        <div class="split-copy">
+          <p class="eyebrow">Understand the output</p>
+          <h2>See what the agent actually changed.</h2>
+          <p class="lede">Move from a terminal to a focused diff without hunting down the right repository or branch.</p>
+          <ul class="check-list">
+            <li>Unified and side-by-side diffs.</li>
+            <li>Stage files, hunks, or selected lines.</li>
+            <li>Commit, amend, push, merge, or rebase.</li>
+            <li>Open the exact file in your IDE when it needs attention.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Stay oriented</p>
+          <h2>See every stream of work at a glance.</h2>
+          <p>Group worktrees into states such as Planning, In Progress, Blocked, and Review. FlowTree supports multiple repositories without mixing their working context.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card"><h3>Branches and remotes</h3><p>Create, find, fetch, pull, push, and see branches already active elsewhere.</p></article>
+          <article class="card"><h3>Safe Git operations</h3><p>Preview merges and rebases, protect important branches, and handle stashes and conflicts deliberately.</p></article>
+          <article class="card"><h3>Your existing tools</h3><p>Open worktrees in Finder, Xcode, Visual Studio Code, Android Studio, or IntelliJ IDEA.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <div class="quote-band"><blockquote>Your code stays on your Mac.</blockquote><p>FlowTree coordinates local Git, tmux, files, and the CLI tools you choose. There is no FlowTree repository backend.</p></div>
       </div>
     </section>
     <CTA />

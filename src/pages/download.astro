@@ -6,42 +6,17 @@ import PageHero from '../components/PageHero.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Download FlowTree for macOS — release status" description="FlowTree is not available to download yet. Review the current requirements and what will be provided on release day.">
+<Layout title="FlowTree for macOS — release status" description="FlowTree is not available to download yet. Check the current release status and requirements.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Download" title="FlowTree is not available to download yet." description="This route is ready for release, but there is intentionally no inactive or misleading download link. Versioned builds and installation details will appear here when distribution is ready." />
+    <PageHero eyebrow="Release status" title="FlowTree is coming to macOS." description="The public build is not ready yet. Download and installation details will appear here at release." />
 
     <section class="section-tight">
       <div class="status-card">
         <span class="status-badge">Pre-release</span>
-        <h2>Release package coming later</h2>
-        <p class="lede">The public download will include a notarised macOS build, exact system requirements, version information, and a verifiable checksum.</p>
-        <div class="button-row" style="justify-content:center"><a class="button button-secondary" href={`${base}features/`}>Explore features</a><a class="button button-secondary" href={`${base}faq/`}>Read the FAQ</a></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading center"><p class="eyebrow">Current development target</p><h2>Plan your environment.</h2><p>These details reflect the current application project and may be refined before public release.</p></div>
-        <div class="card-grid">
-          <article class="card"><div class="feature-icon">⌘</div><h3>macOS 26+</h3><p>The current app target requires macOS 26 or later.</p></article>
-          <article class="card"><div class="feature-icon mint">⑂</div><h3>Git</h3><p>A trusted local Git installation is required for repository and worktree operations.</p></article>
-          <article class="card"><div class="feature-icon purple">›_</div><h3>tmux for terminals</h3><p>Install tmux to use FlowTree’s persistent embedded terminal tabs.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border">
-      <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Before the button activates</p><h2>The release page will include:</h2></div>
-        <ul class="check-list">
-          <li>Current version and release date.</li>
-          <li>Universal or architecture-specific build details.</li>
-          <li>File size and SHA-256 checksum.</li>
-          <li>Notarisation and Gatekeeper information.</li>
-          <li>Short installation and update instructions.</li>
-          <li>Release notes and a support contact.</li>
-        </ul>
+        <h2>Current requirements</h2>
+        <p class="lede">macOS 26 or later, a local Git installation, and tmux for persistent terminals.</p>
+        <div class="button-row" style="justify-content:center"><a class="button button-secondary" href={`${base}features/`}>Explore FlowTree</a><a class="button button-secondary" href={`${base}faq/`}>Read the FAQ</a></div>
       </div>
     </section>
   </main>

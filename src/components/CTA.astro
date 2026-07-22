@@ -2,8 +2,8 @@
 const base = import.meta.env.BASE_URL;
 interface Props { title?: string; description?: string; }
 const {
-  title = 'Keep every piece of work in its own flow.',
-  description = 'FlowTree is not available to download yet. Explore the product now and check back for release details.',
+  title = 'Keep every task in context.',
+  description = 'FlowTree is coming to macOS. See the current release status and requirements.',
 } = Astro.props;
 ---
 
@@ -17,7 +17,6 @@ const {
       </div>
       <div class="button-row">
         <a class="button button-primary" href={`${base}download/`}>Release status →</a>
-        <a class="button button-secondary" href={`${base}faq/`}>Read the FAQ</a>
       </div>
     </div>
   </div>

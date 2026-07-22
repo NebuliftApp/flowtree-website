@@ -2,11 +2,9 @@
 const base = import.meta.env.BASE_URL;
 const pathname = Astro.url.pathname;
 const links = [
-  { href: `${base}worktrees/`, label: 'Worktrees', key: '/worktrees/' },
   { href: `${base}features/`, label: 'Features', key: '/features/' },
   { href: `${base}how-it-works/`, label: 'How it works', key: '/how-it-works/' },
   { href: `${base}faq/`, label: 'FAQ', key: '/faq/' },
-  { href: `${base}pricing/`, label: 'Pricing', key: '/pricing/' },
 ];
 ---
 
@@ -21,14 +19,14 @@ const links = [
       {links.map((link) => (
         <a class="nav-link" href={link.href} aria-current={pathname.endsWith(link.key) ? 'page' : undefined}>{link.label}</a>
       ))}
-      <a class="button button-primary nav-cta" href={`${base}download/`}>Download</a>
+      <a class="button button-primary nav-cta" href={`${base}download/`}>Release status</a>
     </div>
 
     <details class="mobile-nav">
       <summary aria-label="Open navigation">Menu</summary>
       <div class="mobile-panel">
         {links.map((link) => <a class="nav-link" href={link.href}>{link.label}</a>)}
-        <a class="nav-link" href={`${base}download/`}>Download</a>
+        <a class="nav-link" href={`${base}download/`}>Release status</a>
       </div>
     </details>
   </div>

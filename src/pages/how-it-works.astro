@@ -7,52 +7,55 @@ import CTA from '../components/CTA.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="How FlowTree works — local Git, tmux, and files" description="FlowTree coordinates local Git, tmux, files, and app state on your Mac, without a FlowTree cloud backend.">
+<Layout title="How FlowTree works — local Git, terminals, and files" description="FlowTree coordinates the Git, terminals, files, and AI tools already on your Mac.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Local-first architecture" title="A native interface over tools already on your Mac." description="FlowTree coordinates local processes and local data. It does not mirror your repositories into a FlowTree service or replace your Git installation with a proprietary implementation." />
+    <PageHero eyebrow="How it works" title="Your tools, organised around the work." description="FlowTree uses ordinary local repositories and processes. It adds a native workspace around them." />
 
     <section class="section-tight">
       <div class="container">
         <div class="architecture" aria-label="FlowTree local architecture">
-          <div class="architecture-node primary"><div><strong>FlowTree</strong><span>Native SwiftUI application</span></div></div>
+          <div class="architecture-node primary"><div><strong>FlowTree</strong><span>Worktrees · review · workflow</span></div></div>
           <div class="architecture-arrow" aria-hidden="true">→</div>
-          <div class="architecture-node"><div><strong>Local processes</strong><span>Git · tmux · shell · AI CLIs</span></div></div>
+          <div class="architecture-node"><div><strong>Local tools</strong><span>Git · tmux · shell · AI CLIs</span></div></div>
           <div class="architecture-arrow" aria-hidden="true">→</div>
-          <div class="architecture-node"><div><strong>Your machine</strong><span>Repositories · worktrees · local app data</span></div></div>
+          <div class="architecture-node"><div><strong>Your Mac</strong><span>Repositories · files · app data</span></div></div>
         </div>
       </div>
     </section>
 
     <section class="section section-border">
       <div class="container card-grid">
-        <article class="card"><div class="feature-icon">›_</div><h3>Your system Git</h3><p>Worktrees, branches, status, diffs, commits, stashes, merges, fetches, pulls, and pushes run through a local Git executable.</p></article>
-        <article class="card"><div class="feature-icon mint">⌁</div><h3>A dedicated tmux server</h3><p>Embedded terminal sessions use their own FlowTree tmux server, separate from the tmux configuration you may already use elsewhere.</p></article>
-        <article class="card"><div class="feature-icon purple">▦</div><h3>Local application state</h3><p>Project configuration, worktree records, terminal metadata, cached Git state, and review state are stored locally on your Mac.</p></article>
+        <article class="card"><div class="feature-icon">⑂</div><h3>Normal Git worktrees</h3><p>FlowTree creates and manages standard worktrees that remain usable from other tools.</p></article>
+        <article class="card"><div class="feature-icon mint">›_</div><h3>Persistent local terminals</h3><p>A dedicated tmux server keeps terminal sessions available when you return.</p></article>
+        <article class="card"><div class="feature-icon purple">⌂</div><h3>Local application state</h3><p>Project settings, terminal metadata, and review state remain on your Mac.</p></article>
       </div>
     </section>
 
     <section id="networking" class="section">
       <div class="narrow">
-        <div class="split-copy"><p class="eyebrow">A precise networking boundary</p><h2>No FlowTree cloud does not mean Git is offline.</h2><p class="lede">FlowTree does not operate a backend that receives your repositories. Remote Git actions still behave like remote Git actions: when requested, the local Git process contacts the remote configured in that repository.</p><ul class="check-list"><li><strong>Local-only:</strong> reading files, status, diffs, branches, history, worktree creation, and local commits.</li><li><strong>Can contact your remote:</strong> fetch, pull, push, remote branch deletion, and related synchronisation.</li><li><strong>Authentication:</strong> your existing SSH keys, credential helpers, or tokens—not a separate FlowTree account.</li></ul><div class="callout" style="margin-top:30px"><strong>Important</strong><p>FlowTree does not make a remote Git operation private or offline; it ensures that FlowTree is not an additional repository host in the middle.</p></div></div>
+        <div class="split-copy">
+          <p class="eyebrow">Local-first</p>
+          <h2>No FlowTree cloud between you and your code.</h2>
+          <p class="lede">FlowTree does not upload repositories to its own service. Remote Git commands still contact the remote you configured, and AI CLIs follow their own provider policies.</p>
+          <ul class="check-list">
+            <li>Local work uses your files and Git installation.</li>
+            <li>Remote operations use your existing Git authentication.</li>
+            <li>FlowTree does not require a repository-hosting account.</li>
+          </ul>
+          <div class="button-row"><a class="text-link" href={`${base}privacy/`}>Read the privacy summary →</a></div>
+        </div>
       </div>
     </section>
 
     <section class="section section-border">
-      <div class="narrow">
-        <div class="split-copy"><p class="eyebrow">Responsive local state</p><h2>Changes made anywhere appear in the same workspace.</h2><p class="lede">Your editor, shell, build tool, and AI coding CLI all work against normal files on disk. FlowTree watches those directories and refreshes its local caches so Git status and review surfaces remain useful.</p><ul class="check-list"><li>macOS file-system events detect changes.</li><li>Background workers refresh Git data and diffs.</li><li>Cached state keeps the interface responsive between refreshes.</li><li>Configurable background sync can fetch configured remotes.</li></ul></div>
-      </div>
-    </section>
-
-    <section class="section">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Current requirements</p><h2>What FlowTree expects on your Mac.</h2></div>
+        <div class="section-heading center"><p class="eyebrow">Requirements</p><h2>What FlowTree uses.</h2></div>
         <div class="card-grid">
-          <article class="card"><h3>macOS 26 or later</h3><p>The current application target is macOS 26+. Final requirements will be repeated next to the download.</p></article>
-          <article class="card"><h3>A local Git installation</h3><p>FlowTree discovers and runs a trusted local Git executable for its repository operations.</p></article>
-          <article class="card"><h3>tmux for terminals</h3><p>tmux is required for persistent terminal tabs. FlowTree explains how to install it when it cannot be found.</p></article>
+          <article class="card"><h3>macOS 26+</h3><p>The current application target.</p></article>
+          <article class="card"><h3>Git</h3><p>Your trusted local Git executable.</p></article>
+          <article class="card"><h3>tmux</h3><p>Required for persistent embedded terminals.</p></article>
         </div>
-        <div class="button-row"><a class="text-link" href={`${base}privacy/`}>Read the product privacy summary →</a></div>
       </div>
     </section>
     <CTA />
