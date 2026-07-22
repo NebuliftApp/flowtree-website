@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
 import CTA from '../components/CTA.astro';
 const base = import.meta.env.BASE_URL;
 ---
@@ -34,16 +33,14 @@ const base = import.meta.env.BASE_URL;
     </section>
 
     <section id="networking" class="section">
-      <div class="container split">
+      <div class="narrow">
         <div class="split-copy"><p class="eyebrow">A precise networking boundary</p><h2>No FlowTree cloud does not mean Git is offline.</h2><p class="lede">FlowTree does not operate a backend that receives your repositories. Remote Git actions still behave like remote Git actions: when requested, the local Git process contacts the remote configured in that repository.</p><ul class="check-list"><li><strong>Local-only:</strong> reading files, status, diffs, branches, history, worktree creation, and local commits.</li><li><strong>Can contact your remote:</strong> fetch, pull, push, remote branch deletion, and related synchronisation.</li><li><strong>Authentication:</strong> your existing SSH keys, credential helpers, or tokens—not a separate FlowTree account.</li></ul><div class="callout" style="margin-top:30px"><strong>Important</strong><p>FlowTree does not make a remote Git operation private or offline; it ensures that FlowTree is not an additional repository host in the middle.</p></div></div>
-        <MediaPlaceholder kind="diagram" ratio="square" title="Local and remote operation boundary" description="Final SVG: FlowTree → local Git. Local commands end on the Mac; fetch/pull/push continue from local Git to the user’s configured Git host. No FlowTree server in the path." />
       </div>
     </section>
 
     <section class="section section-border">
-      <div class="container split reverse">
+      <div class="narrow">
         <div class="split-copy"><p class="eyebrow">Responsive local state</p><h2>Changes made anywhere appear in the same workspace.</h2><p class="lede">Your editor, shell, build tool, and AI coding CLI all work against normal files on disk. FlowTree watches those directories and refreshes its local caches so Git status and review surfaces remain useful.</p><ul class="check-list"><li>macOS file-system events detect changes.</li><li>Background workers refresh Git data and diffs.</li><li>Cached state keeps the interface responsive between refreshes.</li><li>Configurable background sync can fetch configured remotes.</li></ul></div>
-        <MediaPlaceholder kind="video" title="Changes appearing across tools" description="Show one file edited in an IDE, the FlowTree worktree badge updating, then the file opening in Review with its diff ready." />
       </div>
     </section>
 

@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-import ProductMedia from '../components/ProductMedia.astro';
 import CTA from '../components/CTA.astro';
 ---
 
@@ -21,16 +20,14 @@ import CTA from '../components/CTA.astro';
     </section>
 
     <section class="section section-border">
-      <div class="container split">
+      <div class="narrow">
         <div class="split-copy"><p class="eyebrow">Terminal and AI profiles</p><h2>Start the right tool in the right directory.</h2><p class="lede">A terminal profile stores a command, name, default status, and colour. It can launch an AI coding CLI or a normal shell without tying FlowTree to one provider.</p><ul class="check-list"><li>Multiple terminal tabs for each worktree.</li><li>Sessions continue through a dedicated tmux server.</li><li>Rename and recolour sessions after creation.</li><li>Claude sessions can reference linked files and receive linked directories with <code>--add-dir</code>.</li></ul></div>
-        <ProductMedia kind="video" src="images/context-switching.mp4" poster="images/context-switching-poster.png" alt="FlowTree switching between worktrees while their named terminal tabs and running AI sessions remain attached to each workspace." ratio="app" />
       </div>
     </section>
 
     <section class="section">
-      <div class="container split reverse">
+      <div class="narrow">
         <div class="split-copy"><p class="eyebrow">Review and commit</p><h2>See exactly what changed before it ships.</h2><p class="lede">Move from a worktree’s status to a focused review screen with file navigation, syntax-highlighted diffs, staging controls, and commit actions.</p><ul class="check-list"><li>Unified and side-by-side diff modes.</li><li>Stage or unstage files, hunks, and selected lines.</li><li>Discard changes with explicit confirmation.</li><li>Commit, amend, or commit and push from the review.</li><li>Open a specific file directly in a configured IDE.</li></ul></div>
-        <ProductMedia kind="video" src="images/focused-review.mp4" poster="images/focused-review-poster.png" alt="Opening a pull-request worktree, starting its AI terminal profile, and reviewing the branch in its isolated context." ratio="app" />
       </div>
     </section>
 
@@ -49,9 +46,8 @@ import CTA from '../components/CTA.astro';
     </section>
 
     <section class="section">
-      <div class="container split">
+      <div class="narrow">
         <div class="split-copy"><p class="eyebrow">Files and IDEs</p><h2>Move from overview to exact file without hunting.</h2><p class="lede">Open a complete worktree in Finder or your preferred IDE. From review and conflict surfaces, jump directly to the file that needs attention.</p><ul class="check-list"><li>Visual Studio Code and Xcode.</li><li>Android Studio and IntelliJ IDEA.</li><li>Finder and focused pop-out worktree windows.</li><li>Linked external Markdown/text files and directories for Claude context.</li></ul></div>
-        <ProductMedia kind="image" src="images/linked-context.png" alt="A terminal profile configured with a linked feature specification and project directory, with the worktree's Open In actions visible behind it." ratio="app" width={1437} height={921} />
       </div>
     </section>
     <CTA />
