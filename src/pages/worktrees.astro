@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import ProductMedia from '../components/ProductMedia.astro';
 import CTA from '../components/CTA.astro';
 const base = import.meta.env.BASE_URL;
 ---
@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
 
     <section class="section-tight">
       <div class="container">
-        <MediaPlaceholder kind="screenshot" ratio="app" title="Organised worktree dashboard" description="Show the main project plus worktrees under custom states: Planning, In Progress, PR Open, and Blocked. Include a pinned worktree and useful Git status badges." />
+        <ProductMedia kind="image" src="images/flowtree-hero.png" alt="The FlowTree dashboard showing the main LifeSync project and worktrees grouped into In Progress, Planning, Archived, and Pull Request Review states." ratio="app" width={1444} height={925} />
       </div>
     </section>
 
@@ -45,14 +45,14 @@ const base = import.meta.env.BASE_URL;
     <section class="section section-border">
       <div class="container split">
         <div class="split-copy"><p class="eyebrow">Useful from the first command</p><h2>New worktrees start as workable copies.</h2><p class="lede">Tracked files come from Git. FlowTree also carries forward usable untracked files from the main project while excluding ignored files and common generated directories such as build output, dependency folders, and IDE caches.</p><ul class="check-list"><li>Live creation progress across branch, worktree, and copy steps.</li><li>Automatic upstream setup when a matching remote branch exists.</li><li>Safe rollback when creation cannot complete.</li><li>Import and prune support for worktrees managed outside the app.</li></ul></div>
-        <MediaPlaceholder kind="video" title="Guided worktree creation" description="10–15 second close-up of the creation sheet: choose a source branch, name the worktree, show progress, then land in the ready workspace." />
+        <ProductMedia kind="video" src="images/worktree-creation.mp4" poster="images/worktree-creation-poster.png" alt="Creating a Review PR worktree from an existing branch and landing in the ready workspace." ratio="app" />
       </div>
     </section>
 
     <section class="section">
       <div class="container split reverse">
         <div class="split-copy"><p class="eyebrow">Stay oriented</p><h2>States turn a list of folders into a workflow.</h2><p class="lede">Create, rename, colour, reorder, and collapse the states that fit your process. Pin critical worktrees above their groups and see their latest Git status without opening each one.</p><ul class="check-list"><li>Editable states with names, icons, and colours.</li><li>Built-in starting points such as Planning, In Progress, Blocked, and PR Open.</li><li>Per-worktree pinning and renaming.</li><li>Multiple repositories in the same FlowTree window.</li></ul></div>
-        <MediaPlaceholder kind="screenshot" ratio="square" title="Custom workflow states" description="Tight crop showing pinned work, expanded state groups, coloured state icons, branch names, and clean/changed/ahead indicators." />
+        <ProductMedia kind="image" src="images/custom-workflow-states.png" alt="Creating a custom Pull Request Review workflow state with a chosen colour and icon." ratio="square" width={972} height={972} />
       </div>
     </section>
     <CTA title="Let your branches stay open for business." />

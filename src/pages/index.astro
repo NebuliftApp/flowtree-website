@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import ProductMedia from '../components/ProductMedia.astro';
 import CTA from '../components/CTA.astro';
 import { faqs } from '../data/faq';
 
@@ -33,11 +33,14 @@ const useCases = [
             <span class="trust-pill">Your existing Git auth</span>
           </div>
         </div>
-        <MediaPlaceholder
-          kind="screenshot"
+        <ProductMedia
+          kind="image"
+          src="images/flowtree-hero.png"
+          alt="FlowTree showing the LifeSync project organised into workflow states, with the Workout Seeding Test worktree and its terminal sessions open."
           ratio="app"
-          title="FlowTree hero workspace"
-          description="Show one consistent demo project with 4–5 worktrees grouped by state, plus two terminal profile tabs in the selected worktree. Capture at Retina resolution."
+          width={1444}
+          height={925}
+          eager
         />
       </div>
     </section>
@@ -74,10 +77,12 @@ const useCases = [
           </ul>
           <div class="button-row"><a class="text-link" href={`${base}worktrees/`}>See the complete worktree workflow →</a></div>
         </div>
-        <MediaPlaceholder
+        <ProductMedia
           kind="video"
-          title="From interruption to separate workspace"
-          description="15–25 second loop: create “Review Daniel’s PR”, start a terminal profile, switch back to feature work, then return to the still-running review session."
+          src="images/context-switching.mp4"
+          poster="images/context-switching-poster.png"
+          alt="FlowTree switching between feature and pull-request worktrees while each terminal session keeps its own context."
+          ratio="app"
         />
       </div>
     </section>
@@ -125,11 +130,13 @@ const useCases = [
             <li>Open the whole worktree—or a specific review file—in your IDE.</li>
           </ul>
         </div>
-        <MediaPlaceholder
-          kind="screenshot"
+        <ProductMedia
+          kind="image"
+          src="images/linked-context.png"
+          alt="The New Terminal Tab sheet with an Opus profile selected and linked file and directory context enabled."
           ratio="app"
-          title="Terminal profiles and linked context"
-          description="Show the New Terminal Tab sheet with a Claude profile selected, linked files and directories checked, and the worktree name visible behind it."
+          width={1437}
+          height={921}
         />
       </div>
     </section>

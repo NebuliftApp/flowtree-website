@@ -173,6 +173,21 @@ h3 { font-size: 1.24rem; margin-bottom: 10px; }
 .media-placeholder.ratio-wide { aspect-ratio: 16 / 9; min-height: 0; }
 .media-placeholder.ratio-app { aspect-ratio: 16 / 10; min-height: 0; }
 .media-placeholder.ratio-square { aspect-ratio: 1 / 1; min-height: 0; }
+.product-media {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line-bright);
+  border-radius: var(--radius);
+  background: #050608;
+  box-shadow: var(--shadow);
+}
+.product-media.ratio-wide { aspect-ratio: 16 / 9; }
+.product-media.ratio-app { aspect-ratio: 16 / 10; }
+.product-media.ratio-square { aspect-ratio: 1 / 1; }
+.product-media img,
+.product-media video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.product-media video { background: #050608; }
 .placeholder-chrome { position: absolute; top: 0; left: 0; right: 0; height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 13px; border-bottom: 1px solid var(--line); background: rgba(10,12,17,.7); }
 .placeholder-chrome i { width: 7px; height: 7px; border-radius: 50%; background: var(--text-3); }
 .placeholder-copy { width: min(82%, 430px); padding: 30px; text-align: center; }
