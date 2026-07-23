@@ -5,7 +5,8 @@ import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 const base = import.meta.env.BASE_URL;
 
-// Hidden test build. Unlocked by clicking the "Pre-release" badge 5 times.
+// Hidden test build. Unlocked by clicking the "Pre-release" badge 5 times,
+// then typing the magic word to start the download.
 const downloadUrl = 'https://github.com/NebuliftApp/flowtree-website/releases/download/v0.0.3/FlowTree.dmg';
 const version = '0.0.3';
 ---
@@ -25,8 +26,23 @@ const version = '0.0.3';
         <div id="secret-download" hidden>
           <hr style="margin:34px 0;border:none;border-top:1px solid var(--line-bright)" />
           <span class="status-badge" style="border-color:rgba(118,227,199,.4);color:var(--text)">Test build unlocked</span>
-          <p class="lede" style="margin-top:6px">Early, unlisted build <strong>{version}</strong> — signed &amp; notarized. Installs with no Gatekeeper warnings.</p>
-          <div class="button-row" style="justify-content:center">
+          <p class="lede" style="margin-top:6px">Early, unlisted build <strong>{version}</strong> — signed &amp; notarized. Speak the magic word to begin.</p>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:20px">
+            <input
+              id="magic-input"
+              type="text"
+              inputmode="text"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              placeholder="the magic word…"
+              aria-label="Magic word"
+              style="width:min(320px,90%);padding:12px 16px;border-radius:12px;border:1px solid var(--line-bright);background:rgba(9,12,20,.6);color:var(--text);font-size:1rem;text-align:center;outline:none"
+            />
+            <p id="magic-hint" class="lede" style="font-size:.9rem;margin:0;min-height:1.2em"></p>
+          </div>
+          <div class="button-row" id="magic-download-row" style="justify-content:center" hidden>
             <a class="button button-primary" id="secret-download-link" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
           </div>
         </div>
@@ -37,25 +53,58 @@ const version = '0.0.3';
 </Layout>
 
 <script>
+  const MAGIC_WORD = 'woogly-boogly-boo';
+  const REQUIRED_CLICKS = 5;
+  const RESET_MS = 2500;
+
   const badge = document.getElementById('unlock-badge');
   const panel = document.getElementById('secret-download');
-  const link = document.getElementById('secret-download-link');
-  const REQUIRED = 5;
-  const RESET_MS = 2500;
-  let count = 0;
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  const input = document.getElementById('magic-input') as HTMLInputElement | null;
+  const hint = document.getElementById('magic-hint');
+  const row = document.getElementById('magic-download-row');
+  const link = document.getElementById('secret-download-link') as HTMLAnchorElement | null;
 
+  // Step 1: reveal the panel after 5 clicks on the badge.
+  let clicks = 0;
+  let clickTimer: ReturnType<typeof setTimeout> | undefined;
   badge?.addEventListener('click', () => {
     if (!panel || panel.hidden === false) return;
-    count += 1;
-    window.clearTimeout(timer);
-    timer = window.setTimeout(() => { count = 0; }, RESET_MS);
-
-    if (count >= REQUIRED) {
-      window.clearTimeout(timer);
+    clicks += 1;
+    window.clearTimeout(clickTimer);
+    clickTimer = window.setTimeout(() => { clicks = 0; }, RESET_MS);
+    if (clicks >= REQUIRED_CLICKS) {
+      window.clearTimeout(clickTimer);
       panel.hidden = false;
       panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      (link as HTMLElement | null)?.focus();
+      input?.focus();
     }
+  });
+
+  // Step 2: require the magic word before the download unlocks.
+  const normalize = (v: string) => v.trim().toLowerCase().replace(/[\s_-]+/g, '-');
+  let unlocked = false;
+
+  const tryUnlock = () => {
+    if (!input || unlocked) return;
+    if (normalize(input.value) !== MAGIC_WORD) return;
+    unlocked = true;
+    input.disabled = true;
+    if (hint) hint.textContent = '✨ The way is open. Your download is starting…';
+    if (row) row.hidden = false;
+    link?.focus();
+    link?.click(); // start the download automatically; button remains as a fallback
+  };
+
+  input?.addEventListener('input', () => {
+    if (unlocked) return;
+    if (hint && input.value.length > 0 && normalize(input.value) !== MAGIC_WORD) {
+      hint.textContent = 'Not quite… try again.';
+    } else if (hint) {
+      hint.textContent = '';
+    }
+    tryUnlock();
+  });
+  input?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
   });
 </script>
