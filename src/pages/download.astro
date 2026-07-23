@@ -4,6 +4,10 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 const base = import.meta.env.BASE_URL;
+
+// Hidden test build. Unlocked by clicking the "Pre-release" badge 5 times.
+const downloadUrl = 'https://github.com/NebuliftApp/flowtree-website/releases/download/v0.0.3/FlowTree.dmg';
+const version = '0.0.3';
 ---
 
 <Layout title="FlowTree for macOS — release status" description="FlowTree is not available to download yet. Check the current release status and requirements.">
@@ -13,12 +17,45 @@ const base = import.meta.env.BASE_URL;
 
     <section class="section-tight">
       <div class="status-card">
-        <span class="status-badge">Pre-release</span>
+        <span class="status-badge" id="unlock-badge" role="presentation">Pre-release</span>
         <h2>Current requirements</h2>
-        <p class="lede">macOS 26 or later, a local Git installation, and tmux for persistent terminals.</p>
+        <p class="lede">macOS 26 or later (Apple Silicon), a local Git installation, and tmux for persistent terminals.</p>
         <div class="button-row" style="justify-content:center"><a class="button button-secondary" href={`${base}features/`}>Explore FlowTree</a><a class="button button-secondary" href={`${base}faq/`}>Read the FAQ</a></div>
+
+        <div id="secret-download" hidden>
+          <hr style="margin:34px 0;border:none;border-top:1px solid var(--line-bright)" />
+          <span class="status-badge" style="border-color:rgba(118,227,199,.4);color:var(--text)">Test build unlocked</span>
+          <p class="lede" style="margin-top:6px">Early, unlisted build <strong>{version}</strong> — signed &amp; notarized. Installs with no Gatekeeper warnings.</p>
+          <div class="button-row" style="justify-content:center">
+            <a class="button button-primary" id="secret-download-link" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const badge = document.getElementById('unlock-badge');
+  const panel = document.getElementById('secret-download');
+  const link = document.getElementById('secret-download-link');
+  const REQUIRED = 5;
+  const RESET_MS = 2500;
+  let count = 0;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+
+  badge?.addEventListener('click', () => {
+    if (!panel || panel.hidden === false) return;
+    count += 1;
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => { count = 0; }, RESET_MS);
+
+    if (count >= REQUIRED) {
+      window.clearTimeout(timer);
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      (link as HTMLElement | null)?.focus();
+    }
+  });
+</script>
