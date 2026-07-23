@@ -89,10 +89,9 @@ const version = '0.0.3';
     if (normalize(input.value) !== MAGIC_WORD) return;
     unlocked = true;
     input.disabled = true;
-    if (hint) hint.textContent = '✨ The way is open. Your download is starting…';
+    if (hint) hint.textContent = '✨ The way is open. Your download awaits below.';
     if (row) row.hidden = false;
     link?.focus();
-    link?.click(); // start the download automatically; button remains as a fallback
   };
 
   input?.addEventListener('input', () => {
