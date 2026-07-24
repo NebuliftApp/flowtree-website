@@ -3,20 +3,71 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Pricing — FlowTree" description="FlowTree pricing will be published before release.">
+<Layout title="Pricing — FlowTree" description="FlowTree Free and FlowTree Pro pricing, plans, and included features.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Pricing" title="Pricing has not been announced." description="FlowTree is not for sale yet. The complete price, licence terms, and any trial details will be published here before release." />
+    <PageHero eyebrow="Pricing" title="Simple, honest pricing." description="Start free. Upgrade to Pro when you outgrow the limits — no trial, no credit card to try FlowTree." />
 
     <section class="section-tight">
-      <div class="status-card">
-        <span class="status-badge">Pre-release</span>
-        <h2>No checkout yet</h2>
-        <p class="lede">No payment or subscription is being collected from this website.</p>
+      <div class="container">
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <div class="pricing-card-accent"></div>
+            <div class="pricing-card-body">
+              <h3>Free</h3>
+              <p class="pricing-price">£0</p>
+              <p class="fine">No credit card required</p>
+
+              <ul class="check-list">
+                <li>1 project</li>
+                <li>1 worktree</li>
+                <li>1 terminal tab</li>
+                <li>2 terminal profiles</li>
+                <li>2 custom groups</li>
+              </ul>
+
+              <div class="button-row">
+                <a class="button button-secondary" href={`${base}download/`}>Download FlowTree</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-card pro">
+            <div class="pricing-card-accent"></div>
+            <div class="pricing-card-body">
+              <h3>FlowTree Pro</h3>
+              <p class="pricing-price">£7.99<span>/month</span></p>
+              <p class="fine">Renews monthly · cancel anytime</p>
+
+              <ul class="check-list">
+                <li><strong>Everything in Free, plus…</strong></li>
+                <li>Unlimited projects</li>
+                <li>Unlimited worktrees</li>
+                <li>Unlimited terminal tabs</li>
+                <li>Unlimited terminal profiles</li>
+                <li>Unlimited custom groups</li>
+                <li>File &amp; folder linking</li>
+              </ul>
+
+              <div class="button-row">
+                <a class="button button-primary" href={`${base}download/`}>Download FlowTree</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="fine" style="text-align:center; margin-top: 28px;">
+          License purchases aren't open yet. Download FlowTree to use the Free plan today — Pro activates
+          with a license key from the app's Settings once purchasing is live.
+        </p>
       </div>
     </section>
+
+    <CTA title="Existing data is never deleted on downgrade." description="If you go over a Free-plan limit later, older items stay visible and usable — only new ones beyond the limit are locked until you upgrade." />
   </main>
   <Footer />
 </Layout>
