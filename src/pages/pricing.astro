@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL;
 <Layout title="Pricing — FlowTree" description="FlowTree Free and FlowTree Pro pricing, plans, and included features.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Pricing" title="Simple, honest pricing." description="Start free. Upgrade to Pro when you outgrow the limits — no trial, no credit card to try FlowTree." />
+    <PageHero eyebrow="Pricing" title="Simple, honest pricing." description="Free is a real git client for one project — unlimited worktrees, unlimited terminals. Pro adds every project and the advanced git workflows." />
 
     <section class="section-tight">
       <div class="container">
@@ -24,10 +24,12 @@ const base = import.meta.env.BASE_URL;
 
               <ul class="check-list">
                 <li>1 project</li>
-                <li>1 worktree</li>
-                <li>1 terminal tab</li>
-                <li>2 terminal profiles</li>
-                <li>2 custom groups</li>
+                <li><strong>Unlimited worktrees</strong></li>
+                <li><strong>Unlimited terminal tabs</strong></li>
+                <li>Unlimited LLM profiles</li>
+                <li>File staging, commit &amp; push</li>
+                <li>Branches, merge, rebase &amp; commit graph</li>
+                <li>Manual sync</li>
               </ul>
 
               <div class="button-row">
@@ -40,16 +42,17 @@ const base = import.meta.env.BASE_URL;
             <div class="pricing-card-accent"></div>
             <div class="pricing-card-body">
               <h3>FlowTree Pro</h3>
-              <p class="pricing-price">£7.99<span>/month</span></p>
+              <p class="pricing-price">£4.99<span>/month</span></p>
               <p class="fine">Renews monthly · cancel anytime</p>
 
               <ul class="check-list">
                 <li><strong>Everything in Free, plus…</strong></li>
                 <li>Unlimited projects</li>
-                <li>Unlimited worktrees</li>
-                <li>Unlimited terminal tabs</li>
-                <li>Unlimited terminal profiles</li>
-                <li>Unlimited custom groups</li>
+                <li>Conflict preview before you merge</li>
+                <li>Hunk &amp; line staging</li>
+                <li>Stash management</li>
+                <li>Automatic background sync</li>
+                <li>Worktree groups</li>
                 <li>File &amp; folder linking</li>
               </ul>
 
@@ -61,13 +64,13 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <p class="fine" style="text-align:center; margin-top: 28px;">
-          License purchases aren't open yet. Download FlowTree to use the Free plan today — Pro activates
-          with a license key from the app's Settings once purchasing is live.
+          Download FlowTree to use the Free plan today — no account, no trial timer. Pro activates with a
+          license key from the app's Settings.
         </p>
       </div>
     </section>
 
-    <CTA title="Existing data is never deleted on downgrade." description="If you go over a Free-plan limit later, older items stay visible and usable — only new ones beyond the limit are locked until you upgrade." />
+    <CTA title="Existing data is never deleted on downgrade." description="If your subscription lapses, nothing is removed — your extra projects stay visible and your worktrees, terminals, and commit history keep working. Only the Pro features lock until you upgrade again." />
   </main>
   <Footer />
 </Layout>
