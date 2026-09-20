@@ -85,12 +85,26 @@ const base = import.meta.env.BASE_URL;
           <h2>Know what a merge will do before it does it.</h2>
           <p>Most merges are fine. The problem is that you find out which kind you have after running it.</p>
         </div>
-        <div class="card-grid">
-          <article class="card"><h3>The outcome, up front</h3><p>FlowTree works out whether a merge is a fast-forward, a clean merge commit, already up to date, or conflicted — and when it conflicts, names the files before you start.</p></article>
-          <article class="card"><h3>Conflicts resolved in place</h3><p>Conflicted files are counted in the review list and open in a conflict view. Mark each one resolved as you go, or abort the whole merge and be back where you started.</p></article>
-          <article class="card"><h3>No half-finished states</h3><p>Optionally stash your work for the duration and pull the latest first. The merge runs as visible steps, and if the push afterwards fails you are told plainly that the merge itself is committed and only the push needs retrying.</p></article>
+        <div class="split">
+          <ProductMedia
+            kind="image"
+            src="images/merge-preview.png"
+            alt="FlowTree's merge dialog reporting that a merge has conflicts, showing how far the two branches have diverged and the conflicting hunk with the current and incoming versions against each other."
+            ratio="tall"
+            width={1160}
+            height={1540}
+          />
+          <div class="split-copy">
+            <ul class="check-list">
+              <li><strong>The outcome, up front.</strong> Fast-forward, clean merge commit, already up to date, or conflicted — worked out before anything runs.</li>
+              <li><strong>The conflict itself, not just its name.</strong> Each conflicting file opens to show the current and incoming versions against each other, so you know the size of the job before you take it on.</li>
+              <li><strong>How far apart you are.</strong> Commits ahead and behind, stated plainly for the two branches involved.</li>
+              <li><strong>Uncommitted work handled.</strong> Auto-stash for the duration and re-apply afterwards — and if conflicts occur the stash is kept rather than quietly dropped.</li>
+              <li><strong>Conflicts resolved in place.</strong> Mark files resolved as you work through them, or abort and be exactly where you started.</li>
+            </ul>
+          </div>
         </div>
-        <p class="fine" style="margin-top:24px">Branches you mark as protected are refused as a merge target, and the same protection covers staging, committing, pushing, and branch deletion. Patterns work, so <code>release/*</code> covers every release branch.</p>
+        <p class="fine" style="margin-top:34px">If a merge succeeds but the push afterwards fails, FlowTree says so in those words — the merge is committed, only the push needs retrying. Branches you mark protected are refused as a merge target, and the same protection covers staging, committing, pushing, and branch deletion. Patterns work, so <code>release/*</code> covers every release branch.</p>
       </div>
     </section>
 
@@ -129,21 +143,6 @@ const base = import.meta.env.BASE_URL;
           <article class="card"><h3>Branches on your terms</h3><p>Group branches, pin the ones you live in, filter and sort the list, and see which are already checked out elsewhere. Your arrangement is remembered between launches.</p></article>
           <article class="card"><h3>Windows where you want them</h3><p>Pop a worktree out into its own window, and open review, linked files, and merge queues as separate windows too — so a second screen can hold the diff while the first holds the terminal.</p></article>
           <article class="card"><h3>Your existing tools</h3><p>Open a worktree in Finder or in any of twenty editors — VS Code, Cursor, Zed, Windsurf, Xcode, Sublime Text, Nova, and the JetBrains range from IntelliJ IDEA to PyCharm, GoLand, and Rider.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading center">
-          <p class="eyebrow">On the record</p>
-          <h2>Every Git command it ran, and every flag it added.</h2>
-          <p>A tool with this much reach over your repository should be able to show its work. FlowTree keeps a searchable local log of every Git command it has run on your behalf.</p>
-        </div>
-        <div class="card-grid">
-          <article class="card"><h3>The full effective command</h3><p>Not a summary — the actual argument list, the working directory it ran in, and how it finished. Search by name, command, flag, path, or status.</p></article>
-          <article class="card"><h3>Hardening shown separately</h3><p>The flags FlowTree adds for safety are listed apart from the ones your action implied, so you can see exactly what it did on your behalf rather than taking it on trust.</p></article>
-          <article class="card"><h3>Your log, and only yours</h3><p>It is stored locally and never sent anywhere. Command output and error text are deliberately not recorded, and you can clear the whole log whenever you like.</p></article>
         </div>
       </div>
     </section>
