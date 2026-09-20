@@ -21,7 +21,15 @@ export const faqs = [
   },
   {
     question: 'Does FlowTree ever use the network?',
-    answer: 'FlowTree itself has no cloud service. When you ask Git to fetch, pull, push, or perform another remote operation, your local Git process can contact the remote already configured for that repository using your existing authentication.',
+    answer: 'FlowTree has no cloud service of its own and collects no telemetry, analytics, or usage data. It makes network requests in exactly two situations. First, when you ask Git to fetch, pull, push, or perform another remote operation, your local Git process contacts the remote already configured for that repository using your existing authentication. Second, if you activate a Pro license, the app contacts the licensing service to verify it.',
+  },
+  {
+    question: 'How do I buy and activate FlowTree Pro?',
+    answer: 'Pro is bought through Lemon Squeezy, our reseller and merchant of record. A license key is emailed to you straight after purchase; open Settings → License in the app, paste the key, and Pro unlocks on that Mac. There is no FlowTree account to create, and your card details are handled by Lemon Squeezy rather than by us.',
+  },
+  {
+    question: 'What happens if my subscription ends?',
+    answer: 'Nothing is deleted. Your extra projects stay visible and your worktrees, terminals, and commit history keep working — only the Pro features lock until you subscribe again. If your Mac is simply offline, Pro keeps working for 30 days before the app asks to verify the license again.',
   },
   {
     question: 'Do terminal sessions continue after FlowTree closes?',

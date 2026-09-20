@@ -5,6 +5,19 @@ import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import CTA from '../components/CTA.astro';
 const base = import.meta.env.BASE_URL;
+
+// The Lemon Squeezy hosted checkout for FlowTree Pro.
+//
+// NOTE: this currently points at the TEST-MODE store (store 434870 /
+// product 1232116 — the same pair pinned in the app's
+// FlowTreeSubscriptionConfiguration). Test-mode checkouts accept only Lemon
+// Squeezy's test card numbers and issue test-mode license keys.
+//
+// Before charging real money, this URL and the store/product IDs in
+// Packages/Features/Sources/FeatureShared/Subscriptions/SubscriptionModels.swift
+// must be switched to the live-mode product together — a live key will not
+// validate against test-mode IDs, and vice versa.
+const checkoutUrl = 'https://flowtree.lemonsqueezy.com/checkout/buy/e3cdd3fc-b5b3-4320-b633-426f30eac35f';
 ---
 
 <Layout title="Pricing — FlowTree" description="FlowTree Free and FlowTree Pro pricing, plans, and included features.">
@@ -28,7 +41,7 @@ const base = import.meta.env.BASE_URL;
                 <li><strong>Unlimited terminal tabs</strong></li>
                 <li>Unlimited LLM profiles</li>
                 <li>File staging, commit &amp; push</li>
-                <li>Branches, merge, rebase &amp; commit graph</li>
+                <li>Branches, merge &amp; commit history</li>
                 <li>Manual sync</li>
               </ul>
 
@@ -42,7 +55,7 @@ const base = import.meta.env.BASE_URL;
             <div class="pricing-card-accent"></div>
             <div class="pricing-card-body">
               <h3>FlowTree Pro</h3>
-              <p class="pricing-price">£4.99<span>/month</span></p>
+              <p class="pricing-price">£7.99<span>/month</span></p>
               <p class="fine">Renews monthly · cancel anytime</p>
 
               <ul class="check-list">
@@ -54,18 +67,35 @@ const base = import.meta.env.BASE_URL;
                 <li>Automatic background sync</li>
                 <li>Worktree groups</li>
                 <li>File &amp; folder linking</li>
+                <li>Merge queues</li>
               </ul>
 
               <div class="button-row">
-                <a class="button button-primary" href={`${base}download/`}>Download FlowTree</a>
+                <a class="button button-primary" href={checkoutUrl} rel="noopener">Get FlowTree Pro</a>
               </div>
             </div>
           </div>
         </div>
 
         <p class="fine" style="text-align:center; margin-top: 28px;">
-          Download FlowTree to use the Free plan today — no account, no trial timer. Pro activates with a
-          license key from the app's Settings.
+          FlowTree has no account system — the Free plan works the moment you open the app, with no sign-up
+          and no trial timer.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Activation</p><h2>How Pro reaches your Mac.</h2></div>
+        <div class="workflow-grid">
+          <article class="workflow-step"><h3>1 · Check out</h3><p>Payment is handled by Lemon Squeezy, our reseller and merchant of record. FlowTree never sees your card details.</p></article>
+          <article class="workflow-step"><h3>2 · Get your key</h3><p>A license key arrives by email straight after purchase. It is yours, not tied to an account you have to create.</p></article>
+          <article class="workflow-step"><h3>3 · Activate in the app</h3><p>Open Settings → License, paste the key, and Pro unlocks on that Mac. The key is stored in your Keychain.</p></article>
+        </div>
+        <p class="fine" style="margin-top:24px">
+          Pro is verified against the licensing service when you activate and periodically afterwards. If
+          your Mac is offline the app keeps working on Pro for 30 days before asking to check again.
+          Renews monthly, cancel anytime, and <a class="text-link" href={`${base}terms/#refunds`}>full refund within 14 days</a> if it is not for you.
         </p>
       </div>
     </section>
