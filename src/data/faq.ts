@@ -45,7 +45,7 @@ export const faqs = [
   },
   {
     question: 'Which IDEs are supported?',
-    answer: 'FlowTree can open worktrees in Finder, Visual Studio Code, Xcode, Android Studio, and IntelliJ IDEA. It can also open individual files from relevant review and conflict-resolution surfaces.',
+    answer: 'FlowTree can open a worktree in Finder or in around twenty editors, including Visual Studio Code, Cursor, Zed, Windsurf, Xcode, Sublime Text, BBEdit, Nova, VSCodium, Eclipse, and the JetBrains range — IntelliJ IDEA, Android Studio, PyCharm, WebStorm, GoLand, PhpStorm, RubyMine, CLion, DataGrip, and Rider. It can also open individual files from review and conflict-resolution surfaces. Only the editors you actually have installed are offered.',
   },
   {
     question: 'What happens to untracked files in a new worktree?',
