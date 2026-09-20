@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import ProductMedia from '../components/ProductMedia.astro';
 import CTA from '../components/CTA.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Features — FlowTree" description="Keep worktrees, AI and terminal sessions, Git changes, and IDE access together in one native macOS workspace.">
@@ -20,17 +22,58 @@ import CTA from '../components/CTA.astro';
     </section>
 
     <section class="section section-border">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Merge queues</p>
+          <h2>See the whole stack before you merge any of it.</h2>
+          <p>When several branches depend on each other, the hard part is remembering the order. A merge queue draws the stack as it actually is — each branch, what it is built on, and where it has got to.</p>
+        </div>
+        <ProductMedia
+          kind="image"
+          src="images/merge-queue.png"
+          alt="A FlowTree merge queue showing seven branches as a dependency tree, each with a review status and a link to compare it against its parent."
+          ratio="app"
+          width={2000}
+          height={1255}
+        />
+        <div class="card-grid" style="margin-top:28px">
+          <article class="card"><h3>Status you control</h3><p>Mark each branch Awaiting Review, Comments, or Needs Work — and edit the list, since the statuses are your own catalog rather than a fixed set.</p></article>
+          <article class="card"><h3>Straight to the diff</h3><p>Every entry compares against the branch it is stacked on, not just against main, so you review what that branch actually adds. Paste a pull-request URL and the card links there instead.</p></article>
+          <article class="card"><h3>Hand the stack to an agent</h3><p>Copy Stack renders the whole queue as Markdown — the dependency graph, the "depends on" lines, and a numbered merge order — ready to paste into a coding agent that needs the shape of the work.</p></article>
+        </div>
+        <div class="callout" style="margin-top:28px"><strong>It never merges anything for you</strong><p>A merge queue is a map, not an automation. FlowTree does not run merges from this screen or touch your branches in the background — you merge when you decide to, in the worktree or on your Git host.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="narrow">
         <div class="split-copy">
           <p class="eyebrow">Use the right model for the job</p>
           <h2>Build, test, and challenge ideas side by side.</h2>
-          <p class="lede">Profiles can launch any command-based AI tool or a normal shell. Use one model to implement, another to review its decisions, and dedicated sessions for the application and tests.</p>
+          <p class="lede">A terminal profile is just a name, a colour, and a command. That is the whole model — so it launches any CLI you can run in a shell, and stays useful when you change which tool you reach for.</p>
           <ul class="check-list">
-            <li>Multiple terminal tabs for each worktree.</li>
+            <li>Any command-based AI tool, or a plain shell.</li>
+            <li>Multiple terminal tabs for each worktree, colour-coded by profile.</li>
             <li>Sessions persist when FlowTree closes.</li>
-            <li>Profiles stay provider-independent.</li>
+            <li>Nothing is provider-specific, and no API keys live in FlowTree — each CLI uses its own.</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Starting a session</p>
+          <h2>Give the agent the context, not the tour.</h2>
+          <p>Most of the first five minutes with a coding agent is telling it where things are. FlowTree keeps that setup next to the worktree so it is one click, not a paragraph you retype.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card"><h3>Linked files and folders</h3><p>Save the files an agent usually needs — a spec, a schema, a conventions doc — against the project or just one worktree. They appear as a pick list when you start a session. Nothing is ever attached automatically; you choose each time.</p></article>
+          <article class="card"><h3>Quick commands</h3><p>Save the commands you run constantly and open them as a pre-named terminal tab in one click. A quick command is either a saved profile or free text, grouped and colour-coded however suits the project.</p></article>
+          <article class="card"><h3>Files carried into new worktrees</h3><p>A fresh worktree starts without your untracked local files. FlowTree copies the ones you choose, skipping ignored paths and build directories, and flags likely secrets so you decide deliberately rather than by accident.</p></article>
+        </div>
+        <p class="fine" style="margin-top:24px">Starting a session with linked files pre-referenced in the opening prompt currently works with the Claude Code CLI. Every other profile launches normally, and linked files stay available to open and read from the worktree.</p>
       </div>
     </section>
 
