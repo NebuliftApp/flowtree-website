@@ -4,16 +4,22 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import CTA from '../components/CTA.astro';
+
+// The published support address. This is the only route a customer has to
+// reach us, and the policy below commits to a one-month response window.
+const contactEmail = 'nebuliftapp@gmail.com';
+const controllerName = 'Daniel Sims';
+const lastUpdated = '20 September 2026';
 ---
 
-<Layout title="Privacy — FlowTree" description="A plain-language summary of how the FlowTree macOS application handles repositories, local data, remote Git operations, and authentication.">
+<Layout title="Privacy — FlowTree" description="How FlowTree handles your repositories, local application data, Git remote operations, and the information involved in buying a Pro licence.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Product privacy" title="Your repositories stay under your control." description="FlowTree is designed without a product backend that receives your code. This page describes the application’s current data boundaries in plain language." />
+    <PageHero eyebrow="Privacy" title="Your repositories stay under your control." description="FlowTree has no backend that receives your code, and collects no analytics. This page describes every case where information leaves your Mac, and what happens to the small amount of data involved in buying a licence." />
 
     <section class="section-tight">
       <div class="narrow">
-        <div class="quote-band"><blockquote>FlowTree does not upload your repositories to a FlowTree server.</blockquote><p>Your code is read and changed through ordinary files and local Git operations on your Mac.</p></div>
+        <div class="quote-band"><blockquote>FlowTree collects no telemetry, analytics, crash reports, or usage data — none, on any plan.</blockquote><p>There is no FlowTree server for your code or your activity to be sent to. Your repositories are read and changed through ordinary files and local Git operations on your Mac.</p></div>
       </div>
     </section>
 
@@ -21,20 +27,63 @@ import CTA from '../components/CTA.astro';
       <div class="narrow">
         <div class="section-heading"><p class="eyebrow">Application data</p><h2>What stays on your Mac.</h2></div>
         <div class="faq-list">
-          <article class="card"><h3>Repository contents</h3><p>FlowTree reads local repositories and worktree directories to show status, diffs, and files. It does not copy those repositories into a FlowTree-hosted service.</p></article>
-          <article class="card"><h3>Configuration and cached state</h3><p>Added projects, worktree metadata, terminal profiles, linked paths, cached Git state, review state, and command logs are stored locally as application data.</p></article>
+          <article class="card"><h3>Repository contents</h3><p>FlowTree reads local repositories and worktree directories to show status, diffs, and files. It does not copy those repositories into any hosted service.</p></article>
+          <article class="card"><h3>Configuration and cached state</h3><p>Added projects, worktree metadata, terminal profiles, linked paths, cached Git state, review state, and command logs are stored locally in FlowTree's application-support folder. Deleting the application data removes them.</p></article>
           <article class="card"><h3>Terminal sessions</h3><p>Terminal processes and tmux sessions run on your machine. Any external CLI you start inside a terminal has its own behaviour and privacy terms, separate from FlowTree.</p></article>
-          <article class="card"><h3>Authentication</h3><p>FlowTree does not require custom Git authentication. Local Git uses the SSH keys, credential helpers, tokens, and remote configuration already available in your environment.</p></article>
+          <article class="card"><h3>Authentication</h3><p>FlowTree does not require custom Git authentication and never asks for your Git credentials. Local Git uses the SSH keys, credential helpers, tokens, and remote configuration already present in your environment.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section section-border">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Remote operations</p><h2>When information can leave your Mac.</h2><p>Local-first is a boundary, not a claim that every command is offline.</p></div>
-        <div class="callout"><strong>Git remotes</strong><p>If you run fetch, pull, push, remote branch deletion, or background remote synchronisation, your local Git process communicates with the host configured for that repository.</p></div>
-        <div class="callout" style="margin-top:14px"><strong>External CLIs</strong><p>AI coding tools and other commands launched in FlowTree terminals may contact their own providers. FlowTree does not change or proxy those tools’ networking behaviour.</p></div>
-        <p class="fine" style="margin-top:28px">A formal legal privacy policy, company identity, support contact, analytics statement, and any future licensing-provider disclosures must be completed before commercial release.</p>
+        <div class="section-heading"><p class="eyebrow">Remote operations</p><h2>When information leaves your Mac.</h2><p>Local-first is a boundary, not a claim that every command is offline. There are exactly three cases.</p></div>
+        <div class="callout"><strong>1 · Git remotes</strong><p>If you fetch, pull, push, delete a remote branch, or leave background synchronisation on, your local Git process communicates with the host already configured for that repository, using your existing authentication. FlowTree does not proxy or inspect that traffic. Background sync is disclosed in Settings with an on/off control and an interval, and the in-app activity view shows recent fetches.</p></div>
+        <div class="callout" style="margin-top:14px"><strong>2 · Licence verification</strong><p>If you activate FlowTree Pro, the app sends your licence key to Lemon Squeezy's licensing service to check that it is valid, and repeats that check periodically. It sends no identifier for your machine — the device name transmitted is the fixed text "FlowTree for Mac" for every install. Free-plan users never contact this service.</p></div>
+        <div class="callout" style="margin-top:14px"><strong>3 · External CLIs</strong><p>AI coding tools and other commands you launch in FlowTree terminals may contact their own providers under their own terms. FlowTree does not change or proxy those tools' networking behaviour.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Buying a licence</p><h2>The only personal data involved.</h2></div>
+        <p class="lede">FlowTree has no accounts and no sign-up. The Free plan needs no information from you whatsoever. Personal data exists only if you buy Pro.</p>
+        <ul class="check-list">
+          <li><strong>Lemon Squeezy is our reseller and merchant of record.</strong> They sell the licence to you, take the payment, and handle invoicing and VAT. They collect your name, email address, payment details, and billing country. We never see or handle your card details.</li>
+          <li><strong>We can see your name and email address</strong> in the Lemon Squeezy seller dashboard, together with your order and licence status. We use this only to fulfil and support your purchase.</li>
+          <li><strong>Your licence key is stored on your Mac</strong> in the macOS Keychain, alongside the name and email address returned by the licensing service when the key is checked. This stays on your machine.</li>
+          <li><strong>We do not send marketing email,</strong> and we do not sell, rent, or share your details with anyone beyond the services listed below.</li>
+        </ul>
+        <p class="fine" style="margin-top:24px">Lemon Squeezy's own handling of your data is governed by their privacy policy at <a class="text-link" href="https://www.lemonsqueezy.com/privacy" rel="noopener">lemonsqueezy.com/privacy</a>. They retain order and tax records for as long as their legal obligations require. Where we can act on a request ourselves, we will; where the data sits with Lemon Squeezy, we will pass your request on.</p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Services we rely on</p><h2>Who else is involved.</h2></div>
+        <div class="faq-list">
+          <article class="card"><h3>Lemon Squeezy</h3><p>Payment processing, merchant of record, and licence issuing and verification. Receives your purchase details and, on activation, your licence key.</p></article>
+          <article class="card"><h3>GitHub</h3><p>Hosts this website and the application download. Like any web host, GitHub processes standard request information such as your IP address when you visit a page or download a file. We do not add any tracking of our own.</p></article>
+        </div>
+        <p class="fine" style="margin-top:24px">This website sets no cookies and runs no analytics, advertising, or tracking scripts. There is no consent banner because there is nothing to consent to.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Your rights</p><h2>What you can ask for.</h2></div>
+        <p class="lede">If you have bought a licence, UK data protection law gives you the right to request a copy of the personal data held about you, to have it corrected or erased, to object to or restrict how it is used, and to receive it in a portable form.</p>
+        <p>To exercise any of these, email <a class="text-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>. We will respond within one month. Because your purchase data is held by Lemon Squeezy, some requests will be passed to them to action.</p>
+        <p style="margin-top:18px">We process this data in order to perform the contract you entered into when buying a licence, and to meet the legal obligations that come with selling software. If you are unhappy with how we have handled your data you can complain to the UK Information Commissioner's Office at <a class="text-link" href="https://ico.org.uk" rel="noopener">ico.org.uk</a>.</p>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Contact</p><h2>Who is responsible.</h2></div>
+        <p class="lede">FlowTree is made by {controllerName}, who is the data controller for the purposes described on this page.</p>
+        <p>Questions about privacy, your data, or the application itself: <a class="text-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
+        <p class="fine" style="margin-top:28px">Last updated {lastUpdated}. If this policy changes materially, the revised version will be published here with a new date.</p>
       </div>
     </section>
     <CTA title="Local tools. Visible boundaries." />
