@@ -3,22 +3,22 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-import CTA from '../components/CTA.astro';
 
 const base = import.meta.env.BASE_URL;
 const contactEmail = 'nebuliftapp@gmail.com';
 const licensorName = 'Daniel Sims';
-const lastUpdated = '20 September 2026';
+const lastUpdated = '21 September 2026';
+const portalUrl = 'https://app.lemonsqueezy.com/my-orders';
 ---
 
 <Layout title="Terms & Refunds — FlowTree" description="The licence terms for using FlowTree, how the Pro subscription and billing work, and the refund policy.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Terms" title="The agreement, in plain words." description="These terms cover your licence to use FlowTree, how the Pro subscription works, and how refunds are handled. They are deliberately short." />
+    <PageHero eyebrow="Terms" title="FlowTree terms and refunds." description="These terms cover your licence to use FlowTree, the Pro subscription, refunds, and your rights." />
 
     <section class="section-tight">
       <div class="narrow">
-        <div class="quote-band"><blockquote>Your code is yours. Refunds are given on request within 14 days. Cancel whenever you like.</blockquote><p>That is the whole agreement in three lines. The rest of this page is the detail behind it.</p></div>
+        <div class="quote-band"><blockquote>Your code remains yours. You can cancel Pro at any time and request a full refund within 14 days.</blockquote><p>The terms below explain the licence, billing, refunds, and your rights.</p></div>
       </div>
     </section>
 
@@ -49,7 +49,7 @@ const lastUpdated = '20 September 2026';
         <ul class="check-list">
           <li><strong>Lemon Squeezy is the seller.</strong> They act as reseller and merchant of record for every purchase, handle payment and invoicing, and their terms apply to the transaction itself. We never see your card details.</li>
           <li><strong>Pro renews monthly</strong> at the price shown at checkout, until you cancel. We will tell you before any price change affecting your existing subscription.</li>
-          <li><strong>Cancel whenever you like</strong>, through the customer portal linked from your purchase email. Access continues to the end of the period you have already paid for. Part-months are not refunded on cancellation, though the refund policy below may still apply.</li>
+          <li><strong>Cancel whenever you like</strong>, through the <a class="text-link" href={portalUrl} rel="noopener">Lemon Squeezy My Orders portal</a>, also linked from your purchase email. Access continues to the end of the period you have already paid for. Part-months are not refunded on cancellation, though the refund policy below may still apply.</li>
           <li><strong>Nothing is deleted if your subscription ends.</strong> Your projects, worktrees, terminals, and history all remain. Only the Pro features lock until you subscribe again.</li>
         </ul>
       </div>
@@ -57,17 +57,17 @@ const lastUpdated = '20 September 2026';
 
     <section class="section section-border" id="refunds">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Refunds</p><h2>Ask, and you get one.</h2></div>
+        <div class="section-heading"><p class="eyebrow">Refunds</p><h2>14-day refunds.</h2></div>
         <p class="lede">If FlowTree Pro is not what you expected, email <a class="text-link" href={`mailto:${contactEmail}`}>{contactEmail}</a> within <strong>14 days</strong> of your purchase or renewal and we will refund it in full. You do not need to give a reason.</p>
         <p>Refunds are issued by Lemon Squeezy to your original payment method, normally within a few working days. Your licence is deactivated when the refund is processed.</p>
-        <p style="margin-top:18px">Beyond 14 days, get in touch anyway. If something is broken, or you were charged for a renewal you did not intend, we would far rather sort it out than have you fight your bank over £7.99.</p>
+        <p style="margin-top:18px">If something is broken or a renewal was unexpected, contact us even after 14 days and we will review the situation.</p>
         <p class="fine" style="margin-top:24px">If you are a consumer in the UK or EU you may also have a statutory right to cancel a distance purchase within 14 days. That right can be lost once you begin using digital content and have acknowledged as much at checkout — but the policy above is given voluntarily and is at least as generous, so in practice it makes no difference to you. Nothing here removes any statutory right you have.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Warranties and liability</p><h2>The limits.</h2></div>
+        <div class="section-heading"><p class="eyebrow">Warranties and liability</p><h2>Warranty and liability limits.</h2></div>
         <p>FlowTree is provided as is. We do not warrant that it will be uninterrupted, error free, or fit for any particular purpose, and we do not warrant that it is suitable for use on repositories whose loss you could not tolerate.</p>
         <p style="margin-top:16px">To the extent permitted by law, our total liability to you arising out of or in connection with FlowTree is limited to the amount you paid for it in the twelve months before the claim. We are not liable for indirect or consequential loss, or for loss of profit, business, data, or code.</p>
         <div class="callout" style="margin-top:22px"><strong>What we never exclude</strong><p>Nothing in these terms limits liability for death or personal injury caused by negligence, for fraud or fraudulent misrepresentation, or for anything else that cannot lawfully be excluded.</p><p style="margin-top:10px">If you are a consumer, nothing here affects your statutory rights — including your rights under the Consumer Rights Act 2015 covering digital content that is not of satisfactory quality, fit for purpose, or as described.</p></div>
@@ -78,13 +78,13 @@ const lastUpdated = '20 September 2026';
       <div class="narrow">
         <div class="section-heading"><p class="eyebrow">Open source</p><h2>Components we build on.</h2></div>
         <p class="lede">FlowTree includes third-party open-source software under permissive licences, including GRDB.swift, Highlightr, swift-markdown-ui, NetworkImage, swift-cmark, and a build of Ghostty's terminal library. These remain the property of their authors and are used under their own licence terms.</p>
-        <p>A full list of components and their licences is available on request at <a class="text-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
+        <p>The <a class="text-link" href={`${base}licenses/`}>full list of components and their licences</a> is published on this site, and is also available in the app under Settings → About → Third-Party Licenses.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">General</p><h2>The remaining bits.</h2></div>
+        <div class="section-heading"><p class="eyebrow">General</p><h2>Other terms.</h2></div>
         <div class="faq-list">
           <article class="card"><h3>Ending the agreement</h3><p>You may stop using FlowTree at any time. Your licence ends if you materially breach these terms — for example by redistributing the application or circumventing its licensing. On termination you must stop using FlowTree and remove it from your Macs.</p></article>
           <article class="card"><h3>Changes to these terms</h3><p>We may update these terms as the product changes. The current version is always here with its date. If a change materially reduces your rights while you hold an active subscription, we will tell you by email before it takes effect.</p></article>
@@ -94,7 +94,6 @@ const lastUpdated = '20 September 2026';
         <p class="fine" style="margin-top:28px">FlowTree is made by {licensorName}. Questions about these terms, your licence, or a refund: <a class="text-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>. Last updated {lastUpdated}.</p>
       </div>
     </section>
-    <CTA title="Short terms. Easy refunds." />
   </main>
   <Footer />
 </Layout>

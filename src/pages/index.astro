@@ -14,78 +14,46 @@ const base = import.meta.env.BASE_URL;
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">AI-assisted development for macOS</p>
-          <h1>Keep every coding task <span class="gradient-text">in context.</span></h1>
-          <p class="lede">FlowTree keeps each branch with its terminals, AI sessions, Git changes, and IDE access—so you can move between tasks without reconstructing what was happening.</p>
+          <p class="eyebrow">Git worktree app for macOS</p>
+          <h1>Worktrees, terminals, and <span class="accent-text">code review.</span></h1>
+          <p class="lede">Give each task its own working directory. FlowTree keeps its branch, changed files, and terminal sessions in one view, using the Git, editor, and CLI tools already on your Mac.</p>
           <div class="button-row">
-            <a class="button button-primary" href={`${base}features/`}>Explore FlowTree →</a>
+            <a class="button button-primary" href={`${base}worktrees/`}>See how worktrees work →</a>
             <a class="button button-secondary" href={`${base}download/`}>Release status</a>
           </div>
           <div class="trust-row" aria-label="Product attributes">
             <span class="trust-pill">Native macOS app</span>
-            <span class="trust-pill">Local-first</span>
-            <span class="trust-pill">Works with your AI CLI</span>
+            <span class="trust-pill">Local Git repositories</span>
+            <span class="trust-pill">No FlowTree cloud</span>
           </div>
         </div>
-        <ProductMedia
-          kind="image"
-          src="images/flowtree-hero.png"
-          alt="FlowTree showing a project's worktrees and terminal sessions beside its branch, changed files, and a running AI coding session."
-          ratio="app"
-          width={2000}
-          height={1261}
-          eager
-        />
+        <div class="hero-media">
+          <ProductMedia
+            kind="image"
+            src="images/flowtree-hero.png"
+            alt="FlowTree showing worktrees, a branch's changed files, and terminal tabs in one window."
+            ratio="app"
+            width={3024}
+            height={1964}
+            cropCapture
+            eager
+          />
+          <p class="media-caption">FIG. 01 <span>Cedarboard · worktrees · branch status · terminal</span></p>
+        </div>
       </div>
     </section>
 
     <section class="section section-border">
-      <div class="narrow">
-        <div class="section-heading center">
-          <p class="eyebrow">The problem</p>
-          <h2>AI work rarely stays in one window.</h2>
-          <p>One model is building, another is reviewing, a shell is running tests, and Git shows what actually changed. Add a second task and the windows stop telling you which work they belong to.</p>
+      <div class="container worktree-story">
+        <div class="section-heading">
+          <p class="eyebrow">Terminal sessions</p>
+          <h2>Keep each task's terminals together.</h2>
+          <p>Open a shell, tests, or an AI CLI in separate tabs for a worktree. Switch to another task without closing those sessions or changing the files in the first worktree.</p>
+          <a class="text-link" href={`${base}features/#terminals`}>How terminal sessions work →</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading center">
-          <p class="eyebrow">Context organised by task</p>
-          <h2>Everything around the branch stays together.</h2>
-        </div>
-        <div class="card-grid">
-          <article class="feature-card">
-            <div class="feature-icon">⑂</div>
-            <h3>One home for each task</h3>
-            <p>Give every feature, fix, or review its own worktree without disturbing work already in progress.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon mint">›_</div>
-            <h3>Clear roles for every model</h3>
-            <p>Use one agent to build, another to challenge the result, and separate sessions for tests and logs.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon amber">↩</div>
-            <h3>Ready when you return</h3>
-            <p>Persistent terminals and visible workflow states make it easy to resume the right task.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">⌥</div>
-            <h3>Stacks you can actually read</h3>
-            <p>Merge queues draw dependent branches as a tree, with the review status of each and a diff against the branch it sits on.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon mint">◫</div>
-            <h3>Context on tap</h3>
-            <p>Link the files an agent always needs and pick them when a session starts, instead of explaining the repository again.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon amber">±</div>
-            <h3>Review before it lands</h3>
-            <p>Stage by file, hunk, or line, preview a merge for conflicts, and commit without leaving the workspace.</p>
-          </article>
+        <div class="terminal-group-media">
+          <ProductMedia kind="image" src="images/terminal-group.png" alt="Four terminal tabs attached to a Cedarboard worktree, with one AI session selected beside planning, worktree-check, and recent-commits sessions." ratio="wide" width={1644} height={850} />
+          <p class="media-caption">FIG. 02 <span>One worktree · several terminal sessions</span></p>
         </div>
       </div>
     </section>
@@ -93,41 +61,52 @@ const base = import.meta.env.BASE_URL;
     <section class="section section-border">
       <div class="container split">
         <div class="split-copy">
-          <p class="eyebrow">Worktree-first</p>
-          <h2>Create the workspace. Start the right tools.</h2>
-          <p class="lede">Create or import a worktree, launch your chosen AI or shell profile, and open the same files in your IDE. The branch stays isolated; its working context stays easy to find.</p>
-          <ul class="check-list">
-            <li>Create worktrees from new, local, or remote branches.</li>
-            <li>Keep multiple terminal sessions with each worktree.</li>
-            <li>Organise work with your own names and workflow states.</li>
-          </ul>
-          <div class="button-row"><a class="text-link" href={`${base}worktrees/`}>See the worktree workflow →</a></div>
+          <p class="eyebrow">Project tools</p>
+          <h2>Run saved commands from the worktree sidebar.</h2>
+          <p class="lede">Save commands such as <code>npm test</code> or <code>git status</code> for a project. They appear in its worktrees and open as named terminal tabs.</p>
+          <div class="button-row">
+            <a class="button button-secondary" href={`${base}features/#quick-commands`}>How quick commands work</a>
+          </div>
         </div>
-        <ProductMedia
-          kind="video"
-          src="images/homepage-worktree-creation.mp4"
-          poster="images/homepage-worktree-creation-poster.png"
-          alt="Creating a worktree and starting a dedicated AI terminal session."
-          ratio="app"
-        />
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading center">
-          <p class="eyebrow">Finish in the same context</p>
-          <h2>Review what changed. Then ship it.</h2>
-          <p>Inspect diffs, stage precise changes, commit, push, merge, and work through conflicts without reaching for a separate Git client.</p>
-        </div>
-        <div class="button-row" style="justify-content:center">
-          <a class="button button-secondary" href={`${base}features/`}>See all core features</a>
-          <a class="button button-secondary" href={`${base}how-it-works/`}>How local-first works</a>
+        <div class="quick-command-captures">
+          <figure>
+            <img src={`${base}images/quick-commands-settings.png`} alt="Cedarboard's saved quick commands: Run tests, Check worktree, and Recent commits, each with its command shown." width="1240" height="630" loading="lazy" decoding="async" />
+            <figcaption class="media-caption">FIG. 03 <span>Save commands for the project</span></figcaption>
+          </figure>
+          <figure>
+            <img src={`${base}images/quick-commands-sidebar.png`} alt="The same three quick commands in the FlowTree worktree sidebar, ready to launch." width="630" height="306" loading="lazy" decoding="async" />
+            <figcaption class="media-caption">FIG. 04 <span>Run them from the worktree</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <CTA title="Keep the work. Lose the window tangle." description="FlowTree is coming to macOS. See the current release status and requirements." />
+    <section class="section section-border">
+      <div class="container split">
+        <figure class="context-manager-media">
+          <img src={`${base}images/context-manager-worktree.png`} alt="Manage Linked Context dialog showing Architecture saved for the Cedarboard worktree, with separate Project and This Worktree scopes." width="667" height="519" loading="lazy" decoding="async" />
+        </figure>
+        <div class="split-copy">
+          <p class="eyebrow">Linked context · Pro</p>
+          <h2>Select project files when starting an agent session.</h2>
+          <p class="lede">Save paths to specs, schemas, or folders for a project or worktree. With a compatible Claude Code, Codex, Copilot, or Gemini profile, choose files to reference and folders the session can access.</p>
+          <div class="button-row"><a class="text-link" href={`${base}features/#linked-context`}>See linked files and folders →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="narrow">
+        <div class="section-heading">
+          <p class="eyebrow">Local by design</p>
+          <h2>No FlowTree cloud for your repositories.</h2>
+          <p>FlowTree reads and changes repositories on your Mac. It does not upload them to a FlowTree service or collect usage telemetry. Git remotes, the AI CLIs you run, and Pro licence checks use their own services.</p>
+        </div>
+        <div class="button-row"><a class="text-link" href={`${base}privacy/`}>How FlowTree handles your data →</a></div>
+      </div>
+    </section>
+
+    <CTA />
   </main>
   <Footer />
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -136,6 +115,27 @@ const base = import.meta.env.BASE_URL;
     name: 'FlowTree',
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'macOS 26 or later',
-    description: 'A native macOS workspace that keeps Git worktrees, AI coding sessions, terminals, and code review together by task.',
+    description: 'A native macOS app for Git worktrees, persistent terminal sessions, and code review.',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'FlowTree Free',
+        price: '0',
+        priceCurrency: 'GBP',
+      },
+      {
+        '@type': 'Offer',
+        name: 'FlowTree Pro',
+        price: '7.99',
+        priceCurrency: 'GBP',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: '7.99',
+          priceCurrency: 'GBP',
+          billingDuration: 'P1M',
+          referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' },
+        },
+      },
+    ],
   })} />
 </Layout>

@@ -3,27 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-import CTA from '../components/CTA.astro';
 const base = import.meta.env.BASE_URL;
 
-// The Lemon Squeezy hosted checkout for FlowTree Pro.
-//
-// NOTE: this currently points at the TEST-MODE store (store 434870 /
-// product 1232116 — the same pair pinned in the app's
-// FlowTreeSubscriptionConfiguration). Test-mode checkouts accept only Lemon
-// Squeezy's test card numbers and issue test-mode license keys.
-//
-// Before charging real money, this URL and the store/product IDs in
-// Packages/Features/Sources/FeatureShared/Subscriptions/SubscriptionModels.swift
-// must be switched to the live-mode product together — a live key will not
-// validate against test-mode IDs, and vice versa.
-const checkoutUrl = 'https://flowtree.lemonsqueezy.com/checkout/buy/e3cdd3fc-b5b3-4320-b633-426f30eac35f';
 ---
 
 <Layout title="Pricing — FlowTree" description="FlowTree Free and FlowTree Pro pricing, plans, and included features.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Pricing" title="Simple, honest pricing." description="Free is a real git client for one project — unlimited worktrees, unlimited terminals. Pro adds every project and the advanced git workflows." />
+    <PageHero eyebrow="Pricing" title="Free for one project. Pro for more." description="The Free plan includes unlimited worktrees and terminal tabs for one project. Pro adds multiple projects and advanced Git workflows." />
 
     <section class="section-tight">
       <div class="container">
@@ -46,7 +33,7 @@ const checkoutUrl = 'https://flowtree.lemonsqueezy.com/checkout/buy/e3cdd3fc-b5b
               </ul>
 
               <div class="button-row">
-                <a class="button button-secondary" href={`${base}download/`}>Download FlowTree</a>
+                <a class="button button-secondary" href={`${base}download/`}>Check release status</a>
               </div>
             </div>
           </div>
@@ -70,9 +57,7 @@ const checkoutUrl = 'https://flowtree.lemonsqueezy.com/checkout/buy/e3cdd3fc-b5b
                 <li>Merge queues</li>
               </ul>
 
-              <div class="button-row">
-                <a class="button button-primary" href={checkoutUrl} rel="noopener">Get FlowTree Pro</a>
-              </div>
+              <p class="fine" style="margin-top:24px">Pro checkout opens with the public release.</p>
             </div>
           </div>
         </div>
@@ -86,7 +71,7 @@ const checkoutUrl = 'https://flowtree.lemonsqueezy.com/checkout/buy/e3cdd3fc-b5b
 
     <section class="section section-border">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Activation</p><h2>How Pro reaches your Mac.</h2></div>
+        <div class="section-heading"><p class="eyebrow">Activation</p><h2>Buying and activating Pro.</h2></div>
         <div class="workflow-grid">
           <article class="workflow-step"><h3>1 · Check out</h3><p>Payment is handled by Lemon Squeezy, our reseller and merchant of record. FlowTree never sees your card details.</p></article>
           <article class="workflow-step"><h3>2 · Get your key</h3><p>A license key arrives by email straight after purchase. It is yours, not tied to an account you have to create.</p></article>
@@ -100,7 +85,6 @@ const checkoutUrl = 'https://flowtree.lemonsqueezy.com/checkout/buy/e3cdd3fc-b5b
       </div>
     </section>
 
-    <CTA title="Existing data is never deleted on downgrade." description="If your subscription lapses, nothing is removed — your extra projects stay visible and your worktrees, terminals, and commit history keep working. Only the Pro features lock until you upgrade again." />
   </main>
   <Footer />
 </Layout>

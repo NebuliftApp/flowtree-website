@@ -3,101 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-const base = import.meta.env.BASE_URL;
-
-// Unlisted test build. The download is revealed by pressing the "Coming soon"
-// button five times; the link is in the markup but its section is hidden.
-// To open the download publicly: drop the <script> below, remove `hidden` from
-// the #early-access section, and relabel the Navbar/Footer links from
-// "Release status" to "Download".
-const downloadUrl = 'https://github.com/NebuliftApp/flowtree-website/releases/download/v0.3.0/FlowTree.dmg';
-const version = '0.3.0';
 ---
 
-<Layout title="FlowTree for macOS — release status" description="FlowTree is not available to download yet. Check the current release status and system requirements.">
+<Layout title="FlowTree for macOS — release status" description="FlowTree public download status and system requirements.">
   <Navbar />
   <main>
-    <PageHero eyebrow="Release status" title="FlowTree is coming to macOS." description="The public build is not ready yet. This page will carry the download and installation steps the moment it is." />
+    <PageHero eyebrow="Release status" title="FlowTree is not available to download yet." description="The app is in pre-release testing. There is no public installer or live Pro checkout. This page will carry the download when it is ready." />
 
     <section class="section-tight">
-      <div class="narrow">
-        <div class="status-card">
-          <span class="status-badge">Pre-release</span>
-          <h2 style="margin-bottom:10px">Not yet available</h2>
-          <p class="lede" style="margin-bottom:26px">FlowTree is in active development and the build is still unlisted. Everything below describes what you will need when it opens up.</p>
-          <button type="button" id="soon-button" class="button button-primary">Coming soon</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
       <div class="container">
-        <div class="section-heading center"><p class="eyebrow">Requirements</p><h2>What you will need.</h2></div>
+        <div class="section-heading center"><p class="eyebrow">System requirements</p><h2>What FlowTree needs to run.</h2></div>
         <div class="card-grid">
-          <article class="card"><h3>macOS 26 or later</h3><p>Apple Silicon only. macOS 26 drops Intel support, and FlowTree's terminal engine is built for arm64.</p></article>
-          <article class="card"><h3>Git</h3><p>Any recent local Git installation. FlowTree drives the Git you already have rather than bundling its own, so your existing SSH keys, credential helpers, and remotes keep working untouched.</p></article>
-          <article class="card"><h3>tmux</h3><p>Required for the persistent embedded terminals. Worktree and branch management work without it, but sessions will not survive closing the app.</p></article>
+          <article class="card"><h3>macOS 26 or later</h3><p>FlowTree is built for Apple Silicon Macs. Intel Macs are not supported by the app.</p></article>
+          <article class="card"><h3>Git</h3><p>FlowTree uses your local Git installation, including its existing remotes and authentication.</p></article>
+          <article class="card"><h3>tmux</h3><p>Required for persistent embedded terminal sessions. Worktree and branch management can be used without it.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section section-border">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Signed and notarised</p><h2>It opens like any other Mac app.</h2></div>
-        <p class="lede">Every build is signed with a Developer ID certificate and notarised by Apple, with the ticket stapled to the disk image — so there is no right-click-to-open dance and no Gatekeeper warning to talk your way past.</p>
-        <div class="button-row"><a class="button button-secondary" href={`${base}features/`}>Explore FlowTree</a><a class="button button-secondary" href={`${base}faq/`}>Read the FAQ</a></div>
-      </div>
-    </section>
-
-    <section class="section" id="early-access" hidden>
-      <div class="narrow">
-        <div class="status-card" style="border-color:rgba(118,227,199,.4); background:linear-gradient(145deg, rgba(118,227,199,.1), rgba(19,23,32,.8))">
-          <span class="status-badge" style="border-color:rgba(118,227,199,.4); color:#76e3c7; background:rgba(118,227,199,.07)">Early access</span>
-          <h2 style="margin-bottom:10px">Unlisted build {version}</h2>
-          <p class="lede" style="margin-bottom:26px">A development build, not the public release. Expect rough edges, and keep anything you care about pushed to a remote.</p>
-          <div class="button-row" style="justify-content:center">
-            <a class="button button-primary" id="early-download" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
-          </div>
-          <p class="fine" style="margin-top:22px">Drag FlowTree into your Applications folder, then open it.</p>
-        </div>
+        <div class="section-heading"><p class="eyebrow">At release</p><h2>Installer and instructions will be here.</h2></div>
+        <p class="lede">The public installer is planned to be signed and notarised for macOS. This page will show the exact version, download link, and installation steps once the build is published.</p>
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
-
-<script>
-  const REQUIRED_PRESSES = 5;
-  const RESET_MS = 2500;
-
-  const button = document.getElementById('soon-button') as HTMLButtonElement | null;
-  const panel = document.getElementById('early-access');
-  const link = document.getElementById('early-download') as HTMLAnchorElement | null;
-
-  let presses = 0;
-  let timer: ReturnType<typeof setTimeout> | undefined;
-
-  button?.addEventListener('click', () => {
-    if (!panel || panel.hidden === false) return;
-
-    presses += 1;
-    window.clearTimeout(timer);
-    timer = window.setTimeout(() => { presses = 0; }, RESET_MS);
-
-    // Acknowledge the press without hinting that anything is behind it.
-    button.animate(
-      [{ transform: 'scale(1)' }, { transform: 'scale(0.96)' }, { transform: 'scale(1)' }],
-      { duration: 140, easing: 'ease-out' }
-    );
-
-    if (presses < REQUIRED_PRESSES) return;
-
-    window.clearTimeout(timer);
-    presses = 0;
-    panel.hidden = false;
-    button.textContent = 'Early access unlocked';
-    button.disabled = true;
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    link?.focus();
-  });
-</script>
