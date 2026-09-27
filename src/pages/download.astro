@@ -3,6 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+
+// Unlisted test build. The download is revealed by pressing the "Release status"
+// eyebrow in the page hero five times; the link is in the markup but its
+// section is hidden. To open the download publicly: drop the <script> below,
+// remove `hidden` from the #early-access section, and relabel the
+// Navbar/Footer links from "Release status" to "Download".
+const downloadUrl = 'https://github.com/NebuliftApp/flowtree-website/releases/download/v0.4.0/FlowTree.dmg';
+const version = '0.4.0';
 ---
 
 <Layout title="FlowTree for macOS — release status" description="FlowTree public download status and system requirements.">
@@ -27,6 +35,45 @@ import PageHero from '../components/PageHero.astro';
         <p class="lede">The public installer is planned to be signed and notarised for macOS. This page will show the exact version, download link, and installation steps once the build is published.</p>
       </div>
     </section>
+
+    <section class="section section-border" id="early-access" hidden>
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Early access</p><h2>Unlisted build {version}</h2></div>
+        <p class="lede">A development build, not the public release. Expect rough edges, and keep anything you care about pushed to a remote.</p>
+        <div class="button-row">
+          <a class="button button-primary" id="early-download" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
+        </div>
+        <p class="fine" style="margin-top:22px">Drag FlowTree into your Applications folder, then open it.</p>
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const REQUIRED_PRESSES = 5;
+  const RESET_MS = 2500;
+
+  const trigger = document.querySelector<HTMLElement>('.page-hero .eyebrow');
+  const panel = document.getElementById('early-access');
+  const link = document.getElementById('early-download') as HTMLAnchorElement | null;
+
+  let presses = 0;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+
+  trigger?.addEventListener('click', () => {
+    if (!panel || panel.hidden === false) return;
+
+    presses += 1;
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => { presses = 0; }, RESET_MS);
+
+    if (presses < REQUIRED_PRESSES) return;
+
+    window.clearTimeout(timer);
+    presses = 0;
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    link?.focus();
+  });
+</script>
