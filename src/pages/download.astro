@@ -3,22 +3,32 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-
-// Unlisted test build. The download is revealed by pressing the "Release status"
-// eyebrow in the page hero five times; the link is in the markup but its
-// section is hidden. To open the download publicly: drop the <script> below,
-// remove `hidden` from the #early-access section, and relabel the
-// Navbar/Footer links from "Release status" to "Download".
-const downloadUrl = 'https://github.com/NebuliftApp/flowtree-website/releases/download/v0.4.4/FlowTree.dmg';
-const version = '0.4.4';
+import { downloadAvailable, downloadUrl, version } from '../data/release';
 ---
 
-<Layout title="FlowTree for macOS — release status" description="FlowTree public download status and system requirements.">
+<Layout title={downloadAvailable ? "Download FlowTree for macOS — beta" : "FlowTree for macOS — beta coming soon"} description={downloadAvailable ? "Download the FlowTree beta for macOS." : "The FlowTree beta for macOS is coming soon."}>
   <Navbar />
   <main>
-    <PageHero eyebrow="Release status" title="FlowTree is not available to download yet." description="The app is in pre-release testing. There is no public installer or live Pro checkout. This page will carry the download when it is ready." />
+    <PageHero eyebrow={downloadAvailable ? "Public beta" : "Beta"} title={downloadAvailable ? "Download FlowTree for macOS." : "The FlowTree beta is coming soon."} />
 
     <section class="section-tight">
+      <div class="narrow">
+        <div class="section-heading"><p class="eyebrow">Beta</p><h2>FlowTree is in beta.</h2></div>
+        <p class="lede">The app is fully functional, but you may run into a few kinks while we iron them out. If something goes wrong, email <a href="mailto:nebuliftapp@gmail.com">nebuliftapp@gmail.com</a> so we can fix it.</p>
+        {downloadAvailable ? (
+          <>
+            <div class="button-row">
+              <a class="button button-primary" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
+            </div>
+            <p class="fine" style="margin-top:22px">Open the disk image, drag FlowTree into your Applications folder, then open it.</p>
+          </>
+        ) : (
+          <p class="fine" style="margin-top:22px">The download will be available here shortly.</p>
+        )}
+      </div>
+    </section>
+
+    <section class="section section-border">
       <div class="container">
         <div class="section-heading center"><p class="eyebrow">System requirements</p><h2>What FlowTree needs to run.</h2></div>
         <div class="card-grid">
@@ -28,52 +38,6 @@ const version = '0.4.4';
         </div>
       </div>
     </section>
-
-    <section class="section section-border">
-      <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">At release</p><h2>Installer and instructions will be here.</h2></div>
-        <p class="lede">The public installer is planned to be signed and notarised for macOS. This page will show the exact version, download link, and installation steps once the build is published.</p>
-      </div>
-    </section>
-
-    <section class="section section-border" id="early-access" hidden>
-      <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Early access</p><h2>Unlisted build {version}</h2></div>
-        <p class="lede">A development build, not the public release. Expect rough edges, and keep anything you care about pushed to a remote.</p>
-        <div class="button-row">
-          <a class="button button-primary" id="early-download" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
-        </div>
-        <p class="fine" style="margin-top:22px">Drag FlowTree into your Applications folder, then open it.</p>
-      </div>
-    </section>
   </main>
   <Footer />
 </Layout>
-
-<script>
-  const REQUIRED_PRESSES = 5;
-  const RESET_MS = 2500;
-
-  const trigger = document.querySelector<HTMLElement>('.page-hero .eyebrow');
-  const panel = document.getElementById('early-access');
-  const link = document.getElementById('early-download') as HTMLAnchorElement | null;
-
-  let presses = 0;
-  let timer: ReturnType<typeof setTimeout> | undefined;
-
-  trigger?.addEventListener('click', () => {
-    if (!panel || panel.hidden === false) return;
-
-    presses += 1;
-    window.clearTimeout(timer);
-    timer = window.setTimeout(() => { presses = 0; }, RESET_MS);
-
-    if (presses < REQUIRED_PRESSES) return;
-
-    window.clearTimeout(timer);
-    presses = 0;
-    panel.hidden = false;
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    link?.focus();
-  });
-</script>

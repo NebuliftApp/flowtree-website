@@ -24,11 +24,11 @@ const base = import.meta.env.BASE_URL;
         <div class="creation-paths">
           <figure class="creation-path">
             <figcaption><span>01 / New branch</span><strong>Start a task from a base branch.</strong></figcaption>
-            <img src={`${base}images/worktree-new.png`} alt="FlowTree's Create Worktree dialog with New Branch selected, a worktree name, new branch name, base branch, group, and destination filled in." width="1210" height="1266" loading="lazy" decoding="async" />
+            <img src={`${base}images/worktree-new.png`} alt="FlowTree's Create Worktree sheet with New Branch selected: a worktree name, the new branch daniel/dashboard-notebooks based on main, the Planning group, and the destination folder." width="1160" height="1174" loading="lazy" decoding="async" />
           </figure>
           <figure class="creation-path">
             <figcaption><span>02 / Existing branch</span><strong>Check out a branch already in the repository.</strong></figcaption>
-            <img src={`${base}images/worktree-existing.png`} alt="FlowTree's Create Worktree dialog with Existing Branch selected and the branch picker awaiting a selection." width="1198" height="1066" loading="lazy" decoding="async" />
+            <img src={`${base}images/worktree-existing.png`} alt="FlowTree's Create Worktree sheet with Existing Branch selected and feature/task-labels chosen, with the Planning group and the destination folder." width="1160" height="1014" loading="lazy" decoding="async" />
           </figure>
         </div>
       </div>
@@ -36,9 +36,10 @@ const base = import.meta.env.BASE_URL;
 
     <section class="section">
       <div class="container split">
-        <figure class="product-media copy-files-media">
-          <img src={`${base}images/worktree-file-copy.png`} alt="FlowTree's worktree-file picker for lol-journal showing 47 selected local files, a search field, and individual file choices." width="1236" height="944" loading="lazy" decoding="async" />
-        </figure>
+        <div class="worktree-setup-media">
+          <img src={`${base}images/worktree-files.png`} alt="Cedarboard's Worktree Files settings: local config, editor settings, and seed data ticked to copy into new worktrees, while .env, .npmrc, and certificate files are flagged as possible secrets and left unticked." width="1203" height="905" loading="lazy" decoding="async" />
+          <img src={`${base}images/worktree-setup-command.png`} alt="Cedarboard's post-setup command set to npm install." width="1203" height="128" loading="lazy" decoding="async" />
+        </div>
         <div class="split-copy">
           <p class="eyebrow">Local setup files</p>
           <h2>Copy local setup files into new worktrees.</h2>
@@ -46,9 +47,9 @@ const base = import.meta.env.BASE_URL;
           <ul class="check-list">
             <li>Choose files during worktree creation or in project Settings.</li>
             <li>Reuse the selection for future worktrees in that project.</li>
-            <li>Generated paths are excluded by default; you can change the selection.</li>
+            <li>Generated folders like <code>node_modules</code> are skipped, and files that look like secrets are flagged and left unticked until you choose them.</li>
           </ul>
-          <p>You can also run a project setup command after creation, such as installing dependencies.</p>
+          <p>Set a post-setup command, such as <code>npm install</code>, and it runs in every new worktree once it's created.</p>
         </div>
       </div>
     </section>

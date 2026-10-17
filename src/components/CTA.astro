@@ -1,9 +1,12 @@
 ---
+import { downloadAvailable } from '../data/release';
 const base = import.meta.env.BASE_URL;
 interface Props { title?: string; description?: string; }
 const {
-  title = 'FlowTree is in pre-release testing.',
-  description = 'The release page will have the installer and system requirements when the public build is ready.',
+  title = downloadAvailable ? 'FlowTree is in public beta.' : 'The FlowTree beta is coming soon.',
+  description = downloadAvailable
+    ? 'Download it free for macOS. It works on one project for free, and Pro unlocks the rest.'
+    : 'Free on one project, with Pro for the rest. The download will be here shortly.',
 } = Astro.props;
 ---
 
@@ -11,12 +14,12 @@ const {
   <div class="container">
     <div class="cta-panel">
       <div>
-        <p class="eyebrow">Release status</p>
+        <p class="eyebrow">{downloadAvailable ? 'Download' : 'Beta'}</p>
         <h2>{title}</h2>
         <p>{description}</p>
       </div>
       <div class="button-row">
-        <a class="button button-primary" href={`${base}download/`}>Release status →</a>
+        <a class="button button-primary" href={`${base}download/`}>{downloadAvailable ? 'Download FlowTree →' : 'Beta coming soon →'}</a>
       </div>
     </div>
   </div>

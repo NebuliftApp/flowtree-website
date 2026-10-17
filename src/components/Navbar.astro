@@ -1,4 +1,5 @@
 ---
+import { downloadLabel } from '../data/release';
 const base = import.meta.env.BASE_URL;
 const pathname = Astro.url.pathname;
 const links = [
@@ -20,14 +21,14 @@ const links = [
       {links.map((link) => (
         <a class="nav-link" href={link.href} aria-current={pathname.endsWith(link.key) ? 'page' : undefined}>{link.label}</a>
       ))}
-      <a class="button button-primary nav-cta" href={`${base}download/`} aria-current={pathname.endsWith('/download/') ? 'page' : undefined}>Release status</a>
+      <a class="button button-primary nav-cta" href={`${base}download/`} aria-current={pathname.endsWith('/download/') ? 'page' : undefined}>{downloadLabel}</a>
     </div>
 
     <details class="mobile-nav">
       <summary aria-label="Open navigation">Menu</summary>
       <div class="mobile-panel">
         {links.map((link) => <a class="nav-link" href={link.href} aria-current={pathname.endsWith(link.key) ? 'page' : undefined}>{link.label}</a>)}
-        <a class="nav-link" href={`${base}download/`} aria-current={pathname.endsWith('/download/') ? 'page' : undefined}>Release status</a>
+        <a class="nav-link" href={`${base}download/`} aria-current={pathname.endsWith('/download/') ? 'page' : undefined}>{downloadLabel}</a>
       </div>
     </details>
   </div>
