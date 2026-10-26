@@ -13,12 +13,12 @@ import { downloadAvailable, downloadUrl, version } from '../data/release';
 
     <section class="section-tight">
       <div class="narrow">
-        <div class="section-heading"><p class="eyebrow">Beta</p><h2>FlowTree is in beta.</h2></div>
-        <p class="lede">The app is fully functional, but you may run into a few kinks while we iron them out. If something goes wrong, email <a href="mailto:nebuliftapp@gmail.com">nebuliftapp@gmail.com</a> so we can fix it.</p>
+        <div class="section-heading"><p class="eyebrow">Beta</p><h2>FlowTree is beta software.</h2></div>
+        <p class="lede">This is an early beta, so expect bugs and rough edges, and things may change or break between versions. Keep your work committed and pushed, and don't rely on FlowTree for anything critical yet. If something goes wrong, email <a href="mailto:nebuliftapp@gmail.com">nebuliftapp@gmail.com</a> so we can fix it.</p>
         {downloadAvailable ? (
           <>
             <div class="button-row">
-              <a class="button button-primary" href={downloadUrl}>Download FlowTree {version} (.dmg)</a>
+              <a class="button button-primary" href={downloadUrl}>Download FlowTree {version} beta (.dmg)</a>
             </div>
             <p class="fine" style="margin-top:22px">Open the disk image, drag FlowTree into your Applications folder, then open it.</p>
           </>
