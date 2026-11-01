@@ -8,7 +8,7 @@ import PageHero from '../components/PageHero.astro';
 // reach us, and the policy below commits to a one-month response window.
 const contactEmail = 'nebuliftapp@gmail.com';
 const controllerName = 'Daniel Sims';
-const lastUpdated = '20 September 2026';
+const lastUpdated = '1 November 2026';
 ---
 
 <Layout title="Privacy — FlowTree" description="How FlowTree handles your repositories, local application data, Git remote operations, and the information involved in buying a Pro licence.">
@@ -40,6 +40,7 @@ const lastUpdated = '20 September 2026';
         <div class="callout"><strong>1 · Git remotes</strong><p>If you fetch, pull, push, delete a remote branch, or leave background synchronisation on, your local Git process communicates with the host already configured for that repository, using your existing authentication. FlowTree does not proxy or inspect that traffic. Background sync is disclosed in Settings with an on/off control and an interval, and the in-app activity view shows recent fetches.</p></div>
         <div class="callout" style="margin-top:14px"><strong>2 · Licence verification</strong><p>If you activate FlowTree Pro, the app sends your licence key to Lemon Squeezy's licensing service and validates it periodically. Activation uses the same device name, "FlowTree for Mac", for every install; the service creates an activation ID that the app sends on later checks. FlowTree does not send your computer name. Free-plan users do not contact this service.</p></div>
         <div class="callout" style="margin-top:14px"><strong>3 · External CLIs</strong><p>AI coding tools and other commands you launch in FlowTree terminals may contact their own providers under their own terms. FlowTree does not change or proxy those tools' networking behaviour.</p></div>
+        <div class="callout" style="margin-top:14px"><strong>4 · Update checks</strong><p>FlowTree asks your permission before checking for updates automatically, and you can change that in Settings. A check downloads a small file from GitHub, about once a day if automatic checks are on or whenever you ask. The request names only the FlowTree and updater versions, and nothing about your Mac, projects or usage. An update is only downloaded and installed after you accept it.</p></div>
       </div>
     </section>
 
@@ -62,7 +63,7 @@ const lastUpdated = '20 September 2026';
         <div class="section-heading"><p class="eyebrow">Services we rely on</p><h2>Third-party services.</h2></div>
         <div class="faq-list">
           <article class="card"><h3>Lemon Squeezy</h3><p>Payment processing, merchant of record, and licence issuing and verification. Receives your purchase details and, on activation, your licence key.</p></article>
-          <article class="card"><h3>GitHub</h3><p>Hosts this website and the application download. Like any web host, GitHub processes standard request information such as your IP address when you visit a page or download a file. We do not add any tracking of our own.</p></article>
+          <article class="card"><h3>GitHub</h3><p>Hosts this website, the application download, and update checks. Like any web host, GitHub processes standard request information such as your IP address when you visit a page, download a file, or check for updates. We do not add any tracking of our own.</p></article>
         </div>
         <p class="fine" style="margin-top:24px">This website sets no cookies and runs no analytics, advertising, or tracking scripts. There is no consent banner because there is nothing to consent to.</p>
       </div>
