@@ -4,19 +4,19 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>FlowTree</title>
         <item>
-            <title>0.5.1</title>
-            <pubDate>Sun, 01 Nov 2026 21:38:31 +0000</pubDate>
+            <title>0.5.2</title>
+            <pubDate>Sat, 14 Nov 2026 20:01:06 +0000</pubDate>
             <link>https://nebuliftapp.github.io/flowtree-website/download/</link>
-            <sparkle:version>22</sparkle:version>
-            <sparkle:shortVersionString>0.5.1</sparkle:shortVersionString>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>0.5.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[This is a maintenance release with no changes to how FlowTree works. It confirms that in-app updates work from 0.5.0.
+            <description sparkle:format="markdown"><![CDATA[Bug fixes and improvements.
 ]]></description>
-            <enclosure url="https://github.com/NebuliftApp/flowtree-website/releases/download/v0.5.1/FlowTree.dmg" length="15652965" type="application/octet-stream" sparkle:edSignature="pE2DYj4vAKcDIbr+GAHVh5MI/8iw6W/ImhOjK0OOR98t/A5C3KNAUNYJ2KaPWYovot8RJ8CYbVAJL26XD4c+BQ=="></enclosure>
+            <enclosure url="https://github.com/NebuliftApp/flowtree-website/releases/download/v0.5.2/FlowTree.dmg" length="16056491" type="application/octet-stream" sparkle:edSignature="yZ8sTWCh1cFKu0LxEqh0ephiLUF4eOlrRpSClDHxk6N7kcNIMTheZBluqDfG6EA0p5nw8VcdJvObRmgj792fDw=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: xFl5QPbNDdU6zDQk/w7OH3bXBP9xhM7YPXloXkSIhRXR2fLMi4Z6tMET8T8DQl6lI1KG5MLUPLrpUat9N5ZCBQ==
-length: 1405
+edSignature: vg1wVroU88Ex3upZ3V/QiZqwesdQcE2ahP4qYfKyEwrwv/H229b7u5Zlg6cj7uMHWfgNMjqEBWVmA0huMw4QDA==
+length: 1315
 -->
