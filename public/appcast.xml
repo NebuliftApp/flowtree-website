@@ -4,19 +4,21 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>FlowTree</title>
         <item>
-            <title>0.5.2</title>
-            <pubDate>Sat, 14 Nov 2026 20:01:06 +0000</pubDate>
+            <title>0.5.3</title>
+            <pubDate>Tue, 24 Nov 2026 11:48:10 +0000</pubDate>
             <link>https://nebuliftapp.github.io/flowtree-website/download/</link>
-            <sparkle:version>23</sparkle:version>
-            <sparkle:shortVersionString>0.5.2</sparkle:shortVersionString>
+            <sparkle:version>24</sparkle:version>
+            <sparkle:shortVersionString>0.5.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[Bug fixes and improvements.
+            <description sparkle:format="markdown"><![CDATA[- Review comments now belong to the branch they were left on, so switching branches in the project checkout no longer shows comments from other branches.
+- Passwords and tokens are hidden from git error messages.
+- Terminal activity is checked less often, which uses less power.
 ]]></description>
-            <enclosure url="https://github.com/NebuliftApp/flowtree-website/releases/download/v0.5.2/FlowTree.dmg" length="16056491" type="application/octet-stream" sparkle:edSignature="yZ8sTWCh1cFKu0LxEqh0ephiLUF4eOlrRpSClDHxk6N7kcNIMTheZBluqDfG6EA0p5nw8VcdJvObRmgj792fDw=="></enclosure>
+            <enclosure url="https://github.com/NebuliftApp/flowtree-website/releases/download/v0.5.3/FlowTree.dmg" length="16060326" type="application/octet-stream" sparkle:edSignature="QUKbn9mX3AQgcASUzO+XHc/axmY4uGQDJem1XBS6GKV6ARtS1/HcjS2UlBI1y6ZzYJ7SATdEDZEytWZGxJMfDg=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: vg1wVroU88Ex3upZ3V/QiZqwesdQcE2ahP4qYfKyEwrwv/H229b7u5Zlg6cj7uMHWfgNMjqEBWVmA0huMw4QDA==
-length: 1315
+edSignature: Fu1sva4F0CFZcX7NlftB2cQhKMcAQijegtXpF5BVy/U5wFPT+i4FonhJaW6tvtPrTRxgBlWF0ggRY8ZUM6ePAA==
+length: 1566
 -->
